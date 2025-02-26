@@ -31,11 +31,14 @@
             font-size: 5rem;
             text-transform: uppercase;
             letter-spacing: 5px;
-            text-shadow: 0 0 20px cyan;
+            color: #00bfff;
+            text-shadow: 0 0 20px #00bfff, 0 0 40px #0080ff;
         }
         p {
             font-size: 1.5rem;
             opacity: 0.8;
+            color: #00bfff;
+            text-shadow: 0 0 10px #0080ff;
         }
         /* Background Animation */
         .background {
@@ -44,15 +47,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.2) 0%, rgba(0, 0, 0, 1) 70%);
+            background: radial-gradient(circle, rgba(0, 0, 255, 0.3) 0%, rgba(0, 0, 0, 1) 70%);
             overflow: hidden;
         }
         .grid {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(0, 255, 255, 0.2) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(0, 255, 255, 0.2) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(0, 191, 255, 0.2) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(0, 191, 255, 0.2) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: gridMove 5s linear infinite;
         }
@@ -74,10 +77,11 @@
             position: absolute;
             width: 5px;
             height: 5px;
-            background: cyan;
+            background: #00bfff;
             border-radius: 50%;
             opacity: 0.8;
             animation: moveParticles 5s linear infinite;
+            box-shadow: 0 0 10px #00bfff, 0 0 20px #0080ff;
         }
         @keyframes moveParticles {
             from {
