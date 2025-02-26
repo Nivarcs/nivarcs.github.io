@@ -9,7 +9,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Hide default cursor */
         }
         body {
             background: black;
@@ -34,77 +33,99 @@
             letter-spacing: 5px;
             text-shadow: 0 0 20px cyan;
         }
-        .background {
+        canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            overflow: hidden;
-            background: black;
-        }
-        .lines {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        .line {
-            position: absolute;
-            width: 2px;
-            height: 100%;
-            background: cyan;
-            opacity: 0.5;
-            animation: moveLines 4s linear infinite;
-        }
-        @keyframes moveLines {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(100%);
-            }
-        }
-        /* Custom Cursor */
-        .cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: rgba(0, 255, 255, 0.8);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            box-shadow: 0 0 10px cyan, 0 0 20px cyan;
-            transition: transform 0.1s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="background">
-        <div class="lines"></div>
-    </div>
+    <canvas id="neuralCanvas"></canvas>
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
     </div>
-    <div class="cursor"></div>
 
     <script>
-        // Generate animated tech lines
-        const linesContainer = document.querySelector('.lines');
-        for (let i = 0; i < 30; i++) {
-            let line = document.createElement('div');
-            line.classList.add('line');
-            line.style.left = `${Math.random() * 100}vw`;
-            line.style.animationDuration = `${2 + Math.random() * 3}s`;
-            line.style.opacity = Math.random();
-            linesContainer.appendChild(line);
+        const canvas = document.getElementById("neuralCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = [];
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 4 + 1;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.density = Math.random() * 40 + 5;
+            }
+
+            draw() {
+                ctx.fillStyle = "cyan";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+
+            update(mouseX, mouseY) {
+                let dx = mouseX - this.x;
+                let dy = mouseY - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = 100;
+                let force = (maxDistance - distance) / maxDistance;
+
+                if (distance < maxDistance) {
+                    this.x -= forceDirectionX * this.density * force;
+                    this.y -= forceDirectionY * this.density * force;
+                } else {
+                    this.x += (this.baseX - this.x) * 0.05;
+                    this.y += (this.baseY - this.y) * 0.05;
+                }
+            }
         }
 
-        // Custom Cursor Effect
-        const cursor = document.querySelector(".cursor");
-        document.addEventListener("mousemove", (e) => {
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        function initParticles() {
+            particles.length = 0;
+            for (let i = 0; i < 200; i++) {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                particles.push(new Particle(x, y));
+            }
+        }
+
+        function animate(mouseX, mouseY) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update(mouseX, mouseY);
+                particles[i].draw();
+            }
+            requestAnimationFrame(() => animate(mouseX, mouseY));
+        }
+
+        let mouseX = 0, mouseY = 0;
+        window.addEventListener("mousemove", (event) => {
+            mouseX = event.x;
+            mouseY = event.y;
         });
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        initParticles();
+        animate(mouseX, mouseY);
     </script>
 </body>
 </html>
