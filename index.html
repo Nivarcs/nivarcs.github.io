@@ -23,9 +23,48 @@
             overflow: hidden;
             position: relative;
         }
+        /* Navbar Styles */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            z-index: 3;
+        }
+        .navbar a {
+            color: #00bfff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: white;
+        }
+        .navbar a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #00bfff;
+            bottom: -5px;
+            left: 50%;
+            transition: all 0.3s;
+        }
+        .navbar a:hover::after {
+            width: 100%;
+            left: 0;
+        }
         .container {
             position: relative;
             z-index: 2;
+            margin-top: 50px;
         }
         h1 {
             font-size: 5rem;
@@ -52,6 +91,15 @@
 </head>
 <body>
     <canvas id="neuralCanvas"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
