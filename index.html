@@ -40,83 +40,104 @@
             color: #00bfff;
             text-shadow: 0 0 10px #0080ff;
         }
-        /* Background Animation */
-        .background {
+        /* Background Neural Network */
+        canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0, 0, 255, 0.3) 0%, rgba(0, 0, 0, 1) 70%);
-            overflow: hidden;
-        }
-        .grid {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(rgba(0, 191, 255, 0.2) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(0, 191, 255, 0.2) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 5s linear infinite;
-        }
-        @keyframes gridMove {
-            from {
-                background-position: 0 0;
-            }
-            to {
-                background-position: 50px 50px;
-            }
-        }
-        /* Particle Animation */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        .particle {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #00bfff;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: moveParticles 5s linear infinite;
-            box-shadow: 0 0 10px #00bfff, 0 0 20px #0080ff;
-        }
-        @keyframes moveParticles {
-            from {
-                transform: translateY(100vh);
-                opacity: 0.8;
-            }
-            to {
-                transform: translateY(-100vh);
-                opacity: 0;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="background">
-        <div class="grid"></div>
-        <div class="particles"></div>
-    </div>
+    <canvas id="neuralCanvas"></canvas>
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
     </div>
 
     <script>
-        // Generate particles
-        const particleContainer = document.querySelector('.particles');
-        for (let i = 0; i < 50; i++) {
-            let particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = `${Math.random() * 100}vw`;
-            particle.style.top = `${Math.random() * 100}vh`;
-            particle.style.animationDuration = `${2 + Math.random() * 4}s`;
-            particle.style.animationDelay = `${Math.random() * 5}s`;
-            particleContainer.appendChild(particle);
+        const canvas = document.getElementById("neuralCanvas");
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let nodes = [];
+        let maxDistance = 150;
+
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.radius = 3;
+                this.speedX = (Math.random() - 0.5) * 1.5;
+                this.speedY = (Math.random() - 0.5) * 1.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = "#00bfff";
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#00bfff";
+                ctx.fill();
+            }
         }
+
+        function connectNodes() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    let dx = nodes[i].x - nodes[j].x;
+                    let dy = nodes[i].y - nodes[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = "rgba(0, 191, 255, 0.5)";
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let node of nodes) {
+                node.update();
+                node.draw();
+            }
+            connectNodes();
+            requestAnimationFrame(animate);
+        }
+
+        function init() {
+            nodes = [];
+            for (let i = 0; i < 50; i++) {
+                nodes.push(new Node());
+            }
+            animate();
+        }
+
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        init();
     </script>
 </body>
 </html>
