@@ -4,128 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nivarcs - Coming Soon</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background: black;
-            color: white;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-        .container {
-            position: relative;
-            z-index: 2;
-        }
-        h1 {
-            font-size: 5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px cyan;
-        }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="neuralCanvas"></canvas>
+    <canvas id="techCanvas"></canvas>
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
     </div>
 
-    <script>
-        const canvas = document.getElementById("neuralCanvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const particles = [];
-
-        class Particle {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 4 + 1;
-                this.baseX = this.x;
-                this.baseY = this.y;
-                this.density = Math.random() * 40 + 5;
-            }
-
-            draw() {
-                ctx.fillStyle = "cyan";
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.closePath();
-                ctx.fill();
-            }
-
-            update(mouseX, mouseY) {
-                let dx = mouseX - this.x;
-                let dy = mouseY - this.y;
-                let distance = Math.sqrt(dx * dx + dy * dy);
-                let forceDirectionX = dx / distance;
-                let forceDirectionY = dy / distance;
-                let maxDistance = 100;
-                let force = (maxDistance - distance) / maxDistance;
-
-                if (distance < maxDistance) {
-                    this.x -= forceDirectionX * this.density * force;
-                    this.y -= forceDirectionY * this.density * force;
-                } else {
-                    this.x += (this.baseX - this.x) * 0.05;
-                    this.y += (this.baseY - this.y) * 0.05;
-                }
-            }
-        }
-
-        function initParticles() {
-            particles.length = 0;
-            for (let i = 0; i < 200; i++) {
-                let x = Math.random() * canvas.width;
-                let y = Math.random() * canvas.height;
-                particles.push(new Particle(x, y));
-            }
-        }
-
-        function animate(mouseX, mouseY) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update(mouseX, mouseY);
-                particles[i].draw();
-            }
-            requestAnimationFrame(() => animate(mouseX, mouseY));
-        }
-
-        let mouseX = 0, mouseY = 0;
-        window.addEventListener("mousemove", (event) => {
-            mouseX = event.x;
-            mouseY = event.y;
-        });
-
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
-        });
-
-        initParticles();
-        animate(mouseX, mouseY);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
