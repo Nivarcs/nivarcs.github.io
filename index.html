@@ -21,6 +21,7 @@
             align-items: center;
             text-align: center;
             overflow: hidden;
+            position: relative;
         }
         .container {
             position: relative;
@@ -38,39 +39,51 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://source.unsplash.com/1600x900/?technology,futuristic') no-repeat center center/cover;
-            filter: blur(3px) brightness(0.3);
+            overflow: hidden;
+            background: black;
         }
-        .enter-btn {
-            margin-top: 20px;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border: none;
+        .lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .line {
+            position: absolute;
+            width: 2px;
+            height: 100%;
             background: cyan;
-            color: black;
-            cursor: pointer;
-            transition: 0.3s;
+            opacity: 0.5;
+            animation: moveLines 4s linear infinite;
         }
-        .enter-btn:hover {
-            background: white;
+        @keyframes moveLines {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(100%);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
+    <div class="background">
+        <div class="lines"></div>
+    </div>
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
-        <button class="enter-btn" onclick="askName()">Enter</button>
     </div>
 
     <script>
-        function askName() {
-            let name = prompt("Enter your name:");
-            if (name) {
-                alert(`Welcome, ${name}!`);
-                console.log(`Visitor: ${name}`);
-            }
+        // Generate animated tech lines
+        const linesContainer = document.querySelector('.lines');
+        for (let i = 0; i < 30; i++) {
+            let line = document.createElement('div');
+            line.classList.add('line');
+            line.style.left = `${Math.random() * 100}vw`;
+            line.style.animationDuration = `${2 + Math.random() * 3}s`;
+            line.style.opacity = Math.random();
+            linesContainer.appendChild(line);
         }
     </script>
 </body>
