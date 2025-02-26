@@ -40,7 +40,7 @@
             color: #00bfff;
             text-shadow: 0 0 10px #0080ff;
         }
-        /* DNA Helix */
+        /* Background Neural Network */
         canvas {
             position: absolute;
             top: 0;
@@ -51,86 +51,93 @@
     </style>
 </head>
 <body>
-    <canvas id="dnaCanvas"></canvas>
+    <canvas id="neuralCanvas"></canvas>
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
     </div>
 
     <script>
-        const canvas = document.getElementById("dnaCanvas");
+        const canvas = document.getElementById("neuralCanvas");
         const ctx = canvas.getContext("2d");
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        let angle = 0;
-        let particles = [];
+        let nodes = [];
+        let maxDistance = 150;
 
-        class Particle {
-            constructor(x, y, radius, color) {
-                this.x = x;
-                this.y = y;
-                this.radius = radius;
-                this.color = color;
+        class Node {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.radius = 3;
+                this.speedX = (Math.random() - 0.5) * 1.5;
+                this.speedY = (Math.random() - 0.5) * 1.5;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 15;
-                ctx.shadowColor = this.color;
+                ctx.fillStyle = "#00bfff";
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#00bfff";
                 ctx.fill();
             }
         }
 
-        function createDNA() {
-            particles = [];
-            for (let i = 0; i < 20; i++) {
-                let x1 = Math.sin(i * 0.3 + angle) * 100 + canvas.width / 2;
-                let y1 = i * 30 + canvas.height / 2 - 300;
-                let x2 = Math.sin(i * 0.3 + Math.PI + angle) * 100 + canvas.width / 2;
-                let y2 = i * 30 + canvas.height / 2 - 300;
-                particles.push(new Particle(x1, y1, 5, "#00bfff"));
-                particles.push(new Particle(x2, y2, 5, "#00bfff"));
-            }
-        }
+        function connectNodes() {
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    let dx = nodes[i].x - nodes[j].x;
+                    let dy = nodes[i].y - nodes[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
 
-        function drawDNA() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            ctx.beginPath();
-            for (let i = 0; i < particles.length - 2; i += 2) {
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[i + 2].x, particles[i + 2].y);
-                ctx.strokeStyle = "rgba(0, 191, 255, 0.7)";
-                ctx.lineWidth = 2;
-                ctx.stroke();
-                
-                ctx.moveTo(particles[i + 1].x, particles[i + 1].y);
-                ctx.lineTo(particles[i + 3].x, particles[i + 3].y);
-                ctx.stroke();
-            }
-
-            for (let p of particles) {
-                p.draw();
+                    if (distance < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.strokeStyle = "rgba(0, 191, 255, 0.5)";
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
             }
         }
 
         function animate() {
-            angle += 0.02;
-            createDNA();
-            drawDNA();
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let node of nodes) {
+                node.update();
+                node.draw();
+            }
+            connectNodes();
             requestAnimationFrame(animate);
+        }
+
+        function init() {
+            nodes = [];
+            for (let i = 0; i < 50; i++) {
+                nodes.push(new Node());
+            }
+            animate();
         }
 
         window.addEventListener("resize", () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            init();
         });
 
-        animate();
+        init();
     </script>
 </body>
 </html>
