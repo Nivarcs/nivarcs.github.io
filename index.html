@@ -40,7 +40,7 @@
             color: #00bfff;
             text-shadow: 0 0 10px #0080ff;
         }
-        /* Background Neural Network */
+        /* DNA Animation */
         canvas {
             position: absolute;
             top: 0;
@@ -51,84 +51,74 @@
     </style>
 </head>
 <body>
-    <canvas id="neuralCanvas"></canvas>
+    <canvas id="dnaCanvas"></canvas>
     <div class="container">
         <h1>Nivarcs</h1>
         <p>Something futuristic is coming...</p>
     </div>
 
     <script>
-        const canvas = document.getElementById("neuralCanvas");
+        const canvas = document.getElementById("dnaCanvas");
         const ctx = canvas.getContext("2d");
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        let nodes = [];
-        let maxDistance = 150;
+        let particles = [];
+        let angle = 0;
+        const totalParticles = 50;
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
 
-        class Node {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.radius = 3;
-                this.speedX = (Math.random() - 0.5) * 1.5;
-                this.speedY = (Math.random() - 0.5) * 1.5;
+        class Particle {
+            constructor(index) {
+                this.index = index;
+                this.radius = 5;
+                this.theta = (this.index / totalParticles) * Math.PI * 2;
+                this.x = centerX + Math.sin(this.theta) * 100;
+                this.y = centerY + (this.index - totalParticles / 2) * 8;
             }
 
             update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                this.theta += 0.05;
+                this.x = centerX + Math.sin(this.theta + angle) * 100;
             }
 
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.fillStyle = "#00bfff";
-                ctx.shadowBlur = 10;
+                ctx.shadowBlur = 15;
                 ctx.shadowColor = "#00bfff";
                 ctx.fill();
             }
         }
 
-        function connectNodes() {
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    let dx = nodes[i].x - nodes[j].x;
-                    let dy = nodes[i].y - nodes[j].y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < maxDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(nodes[i].x, nodes[i].y);
-                        ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = "rgba(0, 191, 255, 0.5)";
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
+        function init() {
+            particles = [];
+            for (let i = 0; i < totalParticles; i++) {
+                particles.push(new Particle(i));
             }
         }
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let node of nodes) {
-                node.update();
-                node.draw();
-            }
-            connectNodes();
-            requestAnimationFrame(animate);
-        }
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
 
-        function init() {
-            nodes = [];
-            for (let i = 0; i < 50; i++) {
-                nodes.push(new Node());
+                if (i > 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i - 1].x, particles[i - 1].y);
+                    ctx.lineTo(particles[i].x, particles[i].y);
+                    ctx.strokeStyle = "rgba(0, 191, 255, 0.7)";
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                }
             }
-            animate();
+            angle += 0.02;
+            requestAnimationFrame(animate);
         }
 
         window.addEventListener("resize", () => {
@@ -138,6 +128,7 @@
         });
 
         init();
+        animate();
     </script>
 </body>
 </html>
