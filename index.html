@@ -3,83 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivarcs - Coming Soon</title>
+    <title>Nivarcs - Future Begins Here</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: "Arial", sans-serif;
         }
         body {
             background: black;
             color: white;
-            font-family: Arial, sans-serif;
             height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             overflow: hidden;
             position: relative;
         }
-        /* Navbar Styles */
-        .navbar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            z-index: 3;
-        }
-        .navbar a {
-            color: #00bfff;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            position: relative;
-            transition: color 0.3s;
-        }
-        .navbar a:hover {
-            color: white;
-        }
-        .navbar a::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #00bfff;
-            bottom: -5px;
-            left: 50%;
-            transition: all 0.3s;
-        }
-        .navbar a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-        .container {
-            position: relative;
-            z-index: 2;
-            margin-top: 50px;
-        }
-        h1 {
-            font-size: 5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #00bfff;
-            text-shadow: 0 0 20px #00bfff, 0 0 40px #0080ff;
-        }
-        p {
-            font-size: 1.5rem;
-            opacity: 0.8;
-            color: #00bfff;
-            text-shadow: 0 0 10px #0080ff;
-        }
-        /* Background Neural Network */
+        /* Neural Network Background */
         canvas {
             position: absolute;
             top: 0;
@@ -87,25 +30,65 @@
             width: 100%;
             height: 100%;
         }
+        /* Centered Content */
+        .container {
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #00bfff;
+            text-shadow: 0 0 20px #00bfff, 0 0 40px #0080ff;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00bfff; }
+            to { text-shadow: 0 0 30px #00bfff, 0 0 60px #0080ff; }
+        }
+        p {
+            font-size: 1.5rem;
+            opacity: 0.8;
+            color: #00bfff;
+            text-shadow: 0 0 10px #0080ff;
+        }
+        /* Call to Action Button */
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.2rem;
+            color: black;
+            background: #00bfff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px #00bfff, 0 0 30px #0080ff;
+            transition: all 0.3s ease-in-out;
+        }
+        .cta:hover {
+            background: #0080ff;
+            box-shadow: 0 0 20px #0080ff, 0 0 50px #00bfff;
+        }
     </style>
 </head>
 <body>
     <canvas id="neuralCanvas"></canvas>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
-
     <div class="container">
         <h1>Nivarcs</h1>
-        <p>Something futuristic is coming...</p>
+        <p>The Future Begins Here</p>
+        <button class="cta" onclick="askName()">Join Us</button>
     </div>
 
     <script>
+        // Neural Network Background
         const canvas = document.getElementById("neuralCanvas");
         const ctx = canvas.getContext("2d");
 
@@ -186,6 +169,14 @@
         });
 
         init();
+
+        // Ask Name Function
+        function askName() {
+            let userName = prompt("Enter your name:");
+            if (userName) {
+                alert(`Welcome to Nivarcs, ${userName}!`);
+            }
+        }
     </script>
 </body>
 </html>
