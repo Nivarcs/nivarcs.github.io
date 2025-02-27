@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivarcs - Future Begins Here</title>
+    <title>Nivarcs - Coming Soon</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Arial", sans-serif;
         }
         body {
             background: black;
             color: white;
+            font-family: 'Poppins', sans-serif;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,103 +22,51 @@
             overflow: hidden;
             position: relative;
         }
-        /* Top Left Name Instead of Logo */
-        .brand-name {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #00bfff;
-            text-shadow: 0 0 10px #00bfff, 0 0 20px #0080ff;
+        .container {
+            position: relative;
+            z-index: 2;
         }
-        /* Neural Network Background */
-        canvas {
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px cyan;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid cyan;
+            width: 0;
+            animation: typing 3s steps(8, end) forwards, blink 0.6s infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        .background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.7), black), url('https://source.unsplash.com/1600x900/?technology,futuristic');
+            background-size: cover;
+            filter: blur(3px) brightness(0.3);
         }
-        /* Centered Content */
-        .container {
-            position: relative;
-            z-index: 2;
-        }
-        /* Animated "Nivarcs" */
-        .nivarcs span {
-            font-size: 5rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #00bfff;
-            text-shadow: 0 0 20px #00bfff, 0 0 40px #0080ff;
-            display: inline-block;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        p {
+        .tagline {
             font-size: 1.5rem;
-            opacity: 0.8;
-            color: #00bfff;
-            text-shadow: 0 0 10px #0080ff;
-        }
-        /* Call to Action Button */
-        .cta {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            font-size: 1.2rem;
-            color: black;
-            background: #00bfff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-            box-shadow: 0 0 10px #00bfff, 0 0 30px #0080ff;
-            transition: all 0.3s ease-in-out;
-        }
-        .cta:hover {
-            background: #0080ff;
-            box-shadow: 0 0 20px #0080ff, 0 0 50px #00bfff;
+            margin-top: 10px;
+            color: cyan;
         }
     </style>
 </head>
 <body>
-    <canvas id="neuralCanvas"></canvas>
-
-    <!-- Top Left Brand Name -->
-    <div class="brand-name">NIVARCS</div>
-
+    <div class="background"></div>
     <div class="container">
-        <!-- Animated Name in Center -->
-        <h1 class="nivarcs">
-            <span>N</span><span>I</span><span>V</span><span>A</span><span>R</span><span>C</span><span>S</span>
-        </h1>
-        <p>The Future Begins Here</p>
-        <button class="cta" onclick="askName()">Join Us</button>
+        <h1>NIVARCS</h1>
+        <p class="tagline">Innovating the Future</p>
     </div>
-
-    <script>
-        // Ask Name Function
-        function askName() {
-            let userName = prompt("Enter your name:");
-            if (userName) {
-                alert(`Welcome to Nivarcs, ${userName}!`);
-            }
-        }
-
-        // Animate "Nivarcs" Letter by Letter
-        document.addEventListener("DOMContentLoaded", () => {
-            const letters = document.querySelectorAll(".nivarcs span");
-            letters.forEach((letter, index) => {
-                letter.style.animationDelay = `${index * 0.2}s`;
-            });
-        });
-    </script>
 </body>
 </html>
