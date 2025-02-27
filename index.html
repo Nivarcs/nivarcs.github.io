@@ -22,12 +22,15 @@
             overflow: hidden;
             position: relative;
         }
-        /* Top Left Logo */
-        .logo {
+        /* Top Left Name Instead of Logo */
+        .brand-name {
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 120px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff, 0 0 20px #0080ff;
         }
         /* Neural Network Background */
         canvas {
@@ -88,11 +91,11 @@
 <body>
     <canvas id="neuralCanvas"></canvas>
 
-    <!-- Logo -->
-    <img src="logo.png" alt="Nivarcs Logo" class="logo">
+    <!-- Top Left Brand Name -->
+    <div class="brand-name">NIVARCS</div>
 
     <div class="container">
-        <!-- Animated Name -->
+        <!-- Animated Name in Center -->
         <h1 class="nivarcs">
             <span>N</span><span>I</span><span>V</span><span>A</span><span>R</span><span>C</span><span>S</span>
         </h1>
@@ -101,88 +104,6 @@
     </div>
 
     <script>
-        // Neural Network Background
-        const canvas = document.getElementById("neuralCanvas");
-        const ctx = canvas.getContext("2d");
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let nodes = [];
-        let maxDistance = 150;
-
-        class Node {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.radius = 3;
-                this.speedX = (Math.random() - 0.5) * 1.5;
-                this.speedY = (Math.random() - 0.5) * 1.5;
-            }
-
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = "#00bfff";
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = "#00bfff";
-                ctx.fill();
-            }
-        }
-
-        function connectNodes() {
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    let dx = nodes[i].x - nodes[j].x;
-                    let dy = nodes[i].y - nodes[j].y;
-                    let distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < maxDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(nodes[i].x, nodes[i].y);
-                        ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = "rgba(0, 191, 255, 0.5)";
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let node of nodes) {
-                node.update();
-                node.draw();
-            }
-            connectNodes();
-            requestAnimationFrame(animate);
-        }
-
-        function init() {
-            nodes = [];
-            for (let i = 0; i < 50; i++) {
-                nodes.push(new Node());
-            }
-            animate();
-        }
-
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
-        });
-
-        init();
-
         // Ask Name Function
         function askName() {
             let userName = prompt("Enter your name:");
