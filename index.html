@@ -3,67 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivarcs - Welcome</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Nivarcs - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+        header {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: cyan;
+        }
+        .profile {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            opacity: 0;
+            text-shadow: 0 0 20px cyan;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div class="logo">NIVARCS</div>
+        <div class="logo">Nivarcs</div>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
         </nav>
-        <div class="profile-container">
-            <div class="profile-icon" onclick="toggleDropdown()">&#128100;</div>
-            <div class="dropdown-menu" id="dropdownMenu">
-                <a href="#">Login</a>
-                <a href="#">Sign Up</a>
-                <a href="#">Profile</a>
-            </div>
-        </div>
+        <div class="profile">&#128100;</div>
     </header>
-    
-    <section class="hero">
-        <h1 id="animatedText">NIVARCS</h1>
-        <p>Innovating the future with technology</p>
-    </section>
-    
-    <script>
-        function toggleDropdown() {
-            document.getElementById("dropdownMenu").classList.toggle("show");
-        }
-        
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile-icon')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        };
-        
-        document.addEventListener("DOMContentLoaded", function() {
-            let text = "NIVARCS";
-            let index = 0;
-            let animatedText = document.getElementById("animatedText");
-            animatedText.innerHTML = "";
-            function animateText() {
-                if (index < text.length) {
-                    animatedText.innerHTML += text.charAt(index);
-                    index++;
-                    setTimeout(animateText, 300);
-                }
-            }
-            animateText();
-        });
-    </script>
+    <div class="container">
+        <h1>Nivarcs</h1>
+        <p>Innovating the Future, One Step at a Time.</p>
+    </div>
 </body>
 </html>
