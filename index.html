@@ -3,141 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nivarcs - Innovating the Future</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-            color: white;
-            text-align: center;
-            overflow: hidden;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(10, 10, 10, 0.8);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 100;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-        }
-        .navbar .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #FFD700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            transition: 0.3s;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-        .nav-links a:hover {
-            color: #FFD700;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .profile-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: black;
-            cursor: pointer;
-        }
-        .container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .nivarcs-title {
-            font-size: 5rem;
-            font-weight: bold;
-            color: #FFD700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            display: inline-block;
-        }
-        .nivarcs-title span {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 1s forwards;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .intro-text {
-            font-size: 1.5rem;
-            margin-top: 15px;
-            color: #bbb;
-            font-weight: 300;
-        }
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://source.unsplash.com/1600x900/?ai,technology') no-repeat center center/cover;
-            filter: brightness(0.2);
-            z-index: -1;
-        }
-    </style>
+    <title>Nivarcs</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="logo">Nivarcs</div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Blog</a>
-            <a href="#">Contact</a>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo" onclick="window.location.reload();">NIVARCS</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="profile-icon" onclick="toggleProfileMenu()">
+            <img src="profile.png" alt="Profile">
+            <div id="profileMenu" class="profile-menu">
+                <a href="#">Login</a>
+                <a href="#">Sign Up</a>
+            </div>
         </div>
-        <div class="profile-icon">👤</div>
-    </div>
+    </header>
 
-    <div class="background-animation"></div>
-
-    <div class="container">
-        <h1 class="nivarcs-title">
-            <span style="animation-delay: 0s;">N</span>
-            <span style="animation-delay: 0.1s;">I</span>
-            <span style="animation-delay: 0.2s;">V</span>
-            <span style="animation-delay: 0.3s;">A</span>
-            <span style="animation-delay: 0.4s;">R</span>
-            <span style="animation-delay: 0.5s;">C</span>
-            <span style="animation-delay: 0.6s;">S</span>
-        </h1>
-        <p class="intro-text">Pioneering Innovation. Shaping the Future.</p>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1 id="animatedText">NIVARCS</h1>
+        <p>Your Future Starts Here</p>
     </div>
 
 </body>
