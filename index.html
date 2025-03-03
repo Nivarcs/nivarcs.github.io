@@ -4,36 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nivarcs</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .navbar {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+        .auth {
+            display: flex;
+            gap: 15px;
+        }
+        .auth button {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .auth button:hover {
+            background: white;
+            color: black;
+        }
+        .hero {
+            margin-top: 80px;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
-
-    <!-- Navigation Bar -->
-    <header>
-        <div class="logo" onclick="window.location.reload();">NIVARCS</div>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="profile-icon" onclick="toggleProfileMenu()">
-            <img src="profile.png" alt="Profile">
-            <div id="profileMenu" class="profile-menu">
-                <a href="#">Login</a>
-                <a href="#">Sign Up</a>
-            </div>
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='index.html'">Nivarcs</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#blog">Blog</a>
+            <a href="#contact">Contact</a>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1 id="animatedText">NIVARCS</h1>
-        <p>Your Future Starts Here</p>
+        <div class="auth">
+            <button onclick="window.location.href='login.html'">Login</button>
+            <button onclick="window.location.href='signup.html'">Sign Up</button>
+        </div>
     </div>
-
+    <div class="hero">Welcome to Nivarcs</div>
 </body>
 </html>
