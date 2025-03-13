@@ -1,94 +1,158 @@
-/* General Styles */
+/* Global Styles */
+:root {
+    --primary-color: #1E3A8A;  /* Blue Nova 825 */
+    --secondary-color: #ffffff;
+    --text-color: #e0e0e0;
+    --accent-color: #FFD700;
+    --font-primary: 'Poppins', sans-serif;
+}
+
 body {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-primary);
+    margin: 0;
+    padding: 0;
+    background-color: #10172A;
+    color: var(--text-color);
     text-align: center;
 }
 
-/* Navigation Bar */
-header {
+/* NAVBAR */
+.navbar {
+    background: var(--primary-color);
+    padding: 15px 0;
     position: fixed;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.6);
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: gold;
-    cursor: pointer;
-}
-
-nav ul {
-    display: flex;
+.nav-links {
     list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
 }
 
-nav ul li {
-    margin: 0 20px;
+.nav-links li {
+    display: inline;
 }
 
-nav ul li a {
-    color: white;
+.nav-links a {
     text-decoration: none;
-    font-weight: 500;
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-.profile-icon {
-    position: relative;
+.nav-links a:hover {
+    color: var(--accent-color);
 }
 
-.profile-icon img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+/* HERO */
+.hero {
+    background: linear-gradient(to right, #1E3A8A, #2563EB);
+    padding: 120px 20px;
 }
 
-.profile-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 50px;
-    background: black;
-    padding: 10px;
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
 }
 
-.profile-menu a {
-    color: white;
-    display: block;
-    padding: 5px 10px;
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--accent-color);
+    color: #10172A;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
-/* Forms */
-.form-container {
-    margin-top: 100px;
-    background: rgba(0, 0, 0, 0.8);
+.cta-button:hover {
+    background: #FFC107;
+}
+
+/* SECTIONS */
+section {
+    padding: 60px 20px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+/* SERVICES */
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1E3A8A;
     padding: 20px;
     border-radius: 10px;
-    width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 250px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
 
-input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
+/* FEATURES */
+.features ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+    background: #172554;
+    padding: 50px;
+}
+
+.testimonial {
+    max-width: 500px;
+    margin: auto;
+    background: #1E3A8A;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* CONTACT */
+.contact form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, button {
+    padding: 12px;
     border: none;
     border-radius: 5px;
 }
 
 button {
-    background: gold;
-    color: black;
-    border: none;
-    padding: 10px;
-    width: 100%;
+    background: var(--accent-color);
+    color: #10172A;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+}
+
+button:hover {
+    background: #FFC107;
+}
+
+/* FOOTER */
+.footer {
+    background: #1E3A8A;
+    padding: 15px;
+    color: var(--secondary-color);
 }
