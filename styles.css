@@ -1,3 +1,4 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,103 +6,107 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
-    background-color: #111;
-    color: #fff;
-}
-
-/* Navigation Bar */
+/* Navigation */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 100px;
+    background: rgb(59, 59, 61);
+    color: white;
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
+    gap: 25px;
 }
 
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
+.nav-links li a {
+    color: white;
     text-decoration: none;
-    color: #fff;
     font-size: 16px;
-    transition: color 0.3s ease;
+    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #f39c12;
+.nav-links li a:hover {
+    color: grey;
 }
 
-/* Header Section */
-.header {
+/* Hero Section */
+.hero {
+    height: 679px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 595px;
-    background: url('header-bg.jpg') no-repeat center center/cover;
-    padding: 20px;
-    margin-top: 70px;
+    background: url("5594016.jpg") no-repeat center center/cover; /* Correct Image Path */
+    color: rgb(34, 7, 7);
+    margin-top: 50px; /* Ensures it starts below navigation */
 }
 
-.header-content {
-    max-width: 600px;
+.hero-content {
+    max-width: 700px;
 }
 
-.header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+.hero h1 {
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
 }
 
-.header p {
+.hero p {
     font-size: 18px;
     margin-bottom: 20px;
+    color: #2e2a2a;
 }
 
-.header-buttons {
+/* Buttons */
+.hero-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
 .btn {
-    width: 226px;
-    height: 40px;
-    border: none;
+    display: inline-block;
+    padding: 10px 25px;
     border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s ease;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .primary {
-    background: #f39c12;
-    color: #fff;
+    background: white;
+    color: black;
+    font-weight: bold;
+}
+
+.primary:hover {
+    
+    background:  white;
+    border: 1px solid rgb(0, 0, 0);
+    color: white;
 }
 
 .secondary {
     background: transparent;
-    border: 1px solid #f39c12;
-    color: #f39c12;
+    border: 1px solid white;
+    color: white;
 }
 
-.btn:hover {
-    opacity: 0.8;
+.secondary:hover {
+    background: white;
+    color: black;
 }
