@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 100px;
-    background: rgba(0, 0, 0, 0.8);  /* Transparent black */
+    background: rgb(20, 20, 20);
     color: white;
     position: fixed;
     width: 100%;
@@ -21,14 +21,15 @@
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
+    font-family: 'Playfair Display', serif;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links li a {
@@ -45,7 +46,7 @@
 /* Hero Section */
 .hero {
     position: relative;
-    height: 730px;
+    height: 750px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,61 +55,52 @@
     overflow: hidden;
 }
 
-/* Video Background */
-#hero-video {
+.hero-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;  /* Ensures video covers the whole section */
+    object-fit: cover;
     z-index: -1;
 }
 
-/* Dark Overlay for better text visibility */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);  /* Dark transparent overlay */
-}
-
-/* Hero Content */
 .hero-content {
-    position: relative;
-    max-width: 700px;
+    max-width: 800px;
     z-index: 2;
+    padding: 20px;
 }
 
 .hero h1 {
-    font-size: 44px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 15px;
-    margin-bottom: 20px;
-    color: #ddd;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
 /* Buttons */
 .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .btn {
     display: inline-block;
     padding: 10px 25px;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
     text-decoration: none;
     transition: 0.3s;
+    font-weight: 600;
 }
 
 .primary {
@@ -124,22 +116,12 @@
 
 .secondary {
     background: transparent;
-    border: 1px solid white;
+    border: 2px solid white;
     color: white;
+    font-weight: 600;
 }
 
 .secondary:hover {
     background: white;
     color: black;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #hero-video {
-        display: none; /* Hide video on small screens */
-    }
-
-    .hero {
-        background: url('fallback.jpg') no-repeat center center/cover; /* Fallback Image */
-    }
 }
