@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 100px;
-    background: rgb(59, 59, 61);
+    background: rgba(0, 0, 0, 0.8);  /* Transparent black */
     color: white;
     position: fixed;
     width: 100%;
@@ -44,31 +44,55 @@
 
 /* Hero Section */
 .hero {
-    height: 679px;
+    position: relative;
+    height: 730px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url("5594016.jpg") no-repeat center center/cover; /* Correct Image Path */
-    color: rgb(34, 7, 7);
-    margin-top: 50px; /* Ensures it starts below navigation */
+    color: white;
+    overflow: hidden;
 }
 
+/* Video Background */
+#hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures video covers the whole section */
+    z-index: -1;
+}
+
+/* Dark Overlay for better text visibility */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);  /* Dark transparent overlay */
+}
+
+/* Hero Content */
 .hero-content {
+    position: relative;
     max-width: 700px;
+    z-index: 2;
 }
 
 .hero h1 {
     font-size: 44px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 20px;
-    color: #2e2a2a;
+    color: #ddd;
 }
 
 /* Buttons */
@@ -94,9 +118,7 @@
 }
 
 .primary:hover {
-    
-    background:  white;
-    border: 1px solid rgb(0, 0, 0);
+    background: grey;
     color: white;
 }
 
@@ -109,4 +131,15 @@
 .secondary:hover {
     background: white;
     color: black;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero-video {
+        display: none; /* Hide video on small screens */
+    }
+
+    .hero {
+        background: url('fallback.jpg') no-repeat center center/cover; /* Fallback Image */
+    }
 }
