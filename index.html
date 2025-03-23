@@ -3,37 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIVARCS - AI-Driven Excellence</title>
+    <title>NIVARCS - AI-Driven Digital Solutions</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="logo">NIVARCS</div>
         <ul class="nav-links">
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blog">Blog</a></li>
         </ul>
     </nav>
 
-    <!-- Header Section -->
+    <!-- Header Section with Video Background -->
     <header class="hero">
-        <video autoplay muted loop class="hero-video">
+        <video autoplay loop muted playsinline class="background-video">
             <source src="video.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <h1>The AI Revolution Starts Here – Welcome to NIVARCS</h1>
-            <p>AI-Driven Excellence, Redefining the Future of Business & Technology.</p>
+            <h1>Innovate, Elevate, Dominate</h1>
+            <p>AI-driven solutions to transform your digital presence.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn primary">Get Started</a>
-                <a href="#" class="btn secondary">Learn More</a>
+                <a href="#services" class="btn primary">Get Started</a>
+                <a href="#learn-more" class="btn secondary">Learn More</a>
             </div>
         </div>
     </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Premium Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <img src="service1.jpg" alt="AI Automation">
+                <h3>AI Automation</h3>
+                <p>Transform your business with cutting-edge AI-driven automation solutions.</p>
+                <button class="learn-more">Learn More</button>
+                <div class="extra-content">Deep insights into AI integration for business efficiency.</div>
+            </div>
+            <div class="service-card">
+                <img src="service2.jpg" alt="Digital Marketing">
+                <h3>Digital Marketing</h3>
+                <p>Boost your brand with AI-powered marketing strategies.</p>
+                <button class="learn-more">Learn More</button>
+                <div class="extra-content">Data-driven campaigns for maximum engagement.</div>
+            </div>
+            <div class="service-card">
+                <img src="service3.jpg" alt="E-Commerce Solutions">
+                <h3>E-Commerce Solutions</h3>
+                <p>Optimize and scale your online store with intelligent solutions.</p>
+                <button class="learn-more">Learn More</button>
+                <div class="extra-content">Seamless integrations for better conversions.</div>
+            </div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>

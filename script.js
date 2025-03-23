@@ -1,9 +1,7 @@
-/* Smooth Scroll Effect */
-document.addEventListener("scroll", () => {
-    const navbar = document.querySelector(".navbar");
-    if (window.scrollY > 50) {
-        navbar.style.background = "rgba(0, 0, 0, 0.85)";
-    } else {
-        navbar.style.background = "rgb(20, 20, 20)";
-    }
+/* script.js */
+document.querySelectorAll('.learn-more').forEach(button => {
+    button.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
 });
