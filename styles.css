@@ -1041,4 +1041,6 @@ textarea.form-control {
     }
     
     h2 {
-        font-size: clamp(1.8rem, 3vw, 2.
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+    }
+}
