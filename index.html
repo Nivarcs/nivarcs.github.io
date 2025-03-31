@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,11 @@
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <!-- Swiper JS for sliders -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav id="main-nav">
@@ -20,6 +25,7 @@
             <a href="#services">Services</a>
             <a href="#about">About</a>
             <a href="#why-us">Why Us</a>
+            <a href="#blog">Blog</a>
             <a href="#contact">Contact</a>
         </div>
         <div class="mobile-menu-toggle">
@@ -33,6 +39,7 @@
         <a href="#services">Services</a>
         <a href="#about">About</a>
         <a href="#why-us">Why Us</a>
+        <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
     </div>
 
@@ -40,12 +47,13 @@
     <section id="home" class="hero">
         <div class="hero-video-container">
             <video class="hero-video" autoplay loop muted playsinline>
-                <source src="/api/placeholder/1920/1080" type="video/mp4">
+                <source src="" type="video/mp4">
             </video>
         </div>
         <div class="hero-content fade-in">
             <h1>Shaping the Future with <span>AI Precision</span></h1>
-            <p>NIVARCS delivers enterprise-grade AI solutions that transform businesses through automation, intelligence, and digital innovation.</p>
+            <p>NIVARCS delivers enterprise-grade AI solutions that transform businesses through automation,
+                intelligence, and digital innovation.</p>
             <a href="#services" class="btn btn-primary">Get Started</a>
             <a href="#about" class="btn btn-secondary">Discover More</a>
         </div>
@@ -55,7 +63,8 @@
     <section id="services" class="services">
         <div class="section-header fade-in">
             <h2>Our Services</h2>
-            <p>Cutting-edge AI solutions designed to elevate your business capabilities and digital transformation journey.</p>
+            <p>Cutting-edge AI solutions designed to elevate your business capabilities and digital transformation
+                journey.</p>
         </div>
         <div class="services-grid">
             <!-- Service 1 -->
@@ -64,12 +73,14 @@
                     <div class="service-card-front">
                         <div class="service-icon"><i class="fas fa-brain"></i></div>
                         <h3 class="service-title">AI Strategy</h3>
-                        <p class="service-desc">Custom AI roadmaps aligned with your business objectives and market position.</p>
+                        <p class="service-desc">Custom AI roadmaps aligned with your business objectives and market
+                            position.</p>
                         <div class="service-link">Learn More <i class="fas fa-arrow-right"></i></div>
                     </div>
                     <div class="service-card-back">
                         <h3 class="service-title">AI Strategy</h3>
-                        <p class="service-desc">Our AI consultants analyze your business needs and develop comprehensive strategies for AI implementation, including:</p>
+                        <p class="service-desc">Our AI consultants analyze your business needs and develop comprehensive
+                            strategies for AI implementation, including:</p>
                         <ul>
                             <li>Market opportunity assessment</li>
                             <li>Technology readiness evaluation</li>
@@ -87,7 +98,8 @@
                     <div class="service-card-front">
                         <div class="service-icon"><i class="fas fa-robot"></i></div>
                         <h3 class="service-title">Automation</h3>
-                        <p class="service-desc">Streamline operations with intelligent automation solutions that reduce costs and errors.</p>
+                        <p class="service-desc">Streamline operations with intelligent automation solutions that reduce
+                            costs and errors.</p>
                         <div class="service-link">Learn More <i class="fas fa-arrow-right"></i></div>
                     </div>
                     <div class="service-card-back">
@@ -110,12 +122,14 @@
                     <div class="service-card-front">
                         <div class="service-icon"><i class="fas fa-cloud"></i></div>
                         <h3 class="service-title">Cloud Solutions</h3>
-                        <p class="service-desc">Scalable, high-performance cloud infrastructure optimized for AI workloads.</p>
+                        <p class="service-desc">Scalable, high-performance cloud infrastructure optimized for AI
+                            workloads.</p>
                         <div class="service-link">Learn More <i class="fas fa-arrow-right"></i></div>
                     </div>
                     <div class="service-card-back">
                         <h3 class="service-title">Cloud Solutions</h3>
-                        <p class="service-desc">Our cloud services are designed for maximum performance, security, and cost efficiency:</p>
+                        <p class="service-desc">Our cloud services are designed for maximum performance, security, and
+                            cost efficiency:</p>
                         <ul>
                             <li>AI-optimized infrastructure</li>
                             <li>Multi-cloud strategy development</li>
@@ -133,7 +147,8 @@
                     <div class="service-card-front">
                         <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
                         <h3 class="service-title">Cybersecurity</h3>
-                        <p class="service-desc">AI-powered protection against evolving threats with real-time monitoring.</p>
+                        <p class="service-desc">AI-powered protection against evolving threats with real-time
+                            monitoring.</p>
                         <div class="service-link">Learn More <i class="fas fa-arrow-right"></i></div>
                     </div>
                     <div class="service-card-back">
@@ -179,12 +194,14 @@
                     <div class="service-card-front">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                         <h3 class="service-title">Data Analytics</h3>
-                        <p class="service-desc">Transform raw data into actionable insights with advanced analytics solutions.</p>
+                        <p class="service-desc">Transform raw data into actionable insights with advanced analytics
+                            solutions.</p>
                         <div class="service-link">Learn More <i class="fas fa-arrow-right"></i></div>
                     </div>
                     <div class="service-card-back">
                         <h3 class="service-title">Data Analytics</h3>
-                        <p class="service-desc">Unlock the power of your data with our comprehensive analytics services:</p>
+                        <p class="service-desc">Unlock the power of your data with our comprehensive analytics services:
+                        </p>
                         <ul>
                             <li>Predictive and prescriptive modeling</li>
                             <li>Real-time business intelligence</li>
@@ -206,12 +223,18 @@
         </div>
         <div class="about-container">
             <div class="about-content fade-in">
-                <p>NIVARCS was founded with a singular vision: to harness the transformative power of artificial intelligence and make it accessible to businesses of all sizes. Our team of world-class AI researchers, engineers, and business strategists work together to deliver solutions that drive meaningful business outcomes.</p>
-                <p>We believe that AI is more than just technology—it's a new way of thinking about problems and opportunities. Our approach combines cutting-edge research with practical business applications, ensuring that our solutions deliver real value to our clients.</p>
+                <p>NIVARCS was founded with a singular vision: to harness the transformative power of artificial
+                    intelligence and make it accessible to businesses of all sizes. Our team of world-class AI
+                    researchers, engineers, and business strategists work together to deliver solutions that drive
+                    meaningful business outcomes.</p>
+                <p>We believe that AI is more than just technology—it's a new way of thinking about problems and
+                    opportunities. Our approach combines cutting-edge research with practical business applications,
+                    ensuring that our solutions deliver real value to our clients.</p>
                 <div class="timeline">
                     <div class="timeline-item fade-in">
                         <div class="timeline-year">2018</div>
-                        <div class="timeline-desc">Founded by a team of AI researchers and technology entrepreneurs</div>
+                        <div class="timeline-desc">Founded by a team of AI researchers and technology entrepreneurs
+                        </div>
                     </div>
                     <div class="timeline-item fade-in">
                         <div class="timeline-year">2020</div>
@@ -227,8 +250,30 @@
                     </div>
                 </div>
             </div>
-            <div class="about-image fade-in">
-                <img src="/api/placeholder/600/800" alt="NIVARCS AI Technology">
+            <div class="about-image-slider fade-in">
+                <div class="swiper about-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="/api/placeholder/600/800" alt="NIVARCS AI Technology">
+                            <div class="slide-caption">Our AI Research Lab</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/api/placeholder/600/800" alt="NIVARCS Team">
+                            <div class="slide-caption">Our Global Team</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/api/placeholder/600/800" alt="NIVARCS Office">
+                            <div class="slide-caption">Headquarters</div>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="/api/placeholder/600/800" alt="NIVARCS AI Solutions">
+                            <div class="slide-caption">AI Solutions in Action</div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -239,122 +284,567 @@
             <h2>Why Choose Us</h2>
             <p>We deliver exceptional value through our unique approach to AI implementation and innovation.</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-box fade-in">
-                <div class="feature-icon"><i class="fas fa-microchip"></i></div>
-                <h3 class="feature-title">AI-Powered Solutions</h3>
-                <p class="feature-desc">Our solutions leverage cutting-edge AI technologies to deliver intelligence that adapts to your business needs and evolves with your growth.</p>
+        
+        <div class="why-us-container">
+            <div class="why-us-stats">
+                <div class="stat-box fade-in">
+                    <div class="stat-number" data-count="800">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-box fade-in">
+                    <div class="stat-number" data-count="96">0</div>
+                    <div class="stat-label">Client Satisfaction %</div>
+                </div>
+                <div class="stat-box fade-in">
+                    <div class="stat-number" data-count="12">0</div>
+                    <div class="stat-label">Global Offices</div>
+                </div>
+                <div class="stat-box fade-in">
+                    <div class="stat-number" data-count="250">0</div>
+                    <div class="stat-label">AI Experts</div>
+                </div>
             </div>
-            <div class="feature-box fade-in">
-                <div class="feature-icon"><i class="fas fa-lock"></i></div>
-                <h3 class="feature-title">Enterprise-Grade Security</h3>
-                <p class="feature-desc">We implement rigorous security protocols throughout our development process, ensuring your data and systems remain protected.</p>
+            
+            <div class="features-grid">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                    <h3 class="feature-title">AI-Powered Solutions</h3>
+                    <p class="feature-desc">Our solutions leverage cutting-edge AI technologies to deliver intelligence that
+                        adapts to your business needs and evolves with your growth.</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                    <h3 class="feature-title">Enterprise-Grade Security</h3>
+                    <p class="feature-desc">We implement rigorous security protocols throughout our development process,
+                        ensuring your data and systems remain protected.</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3 class="feature-title">Scalability & Speed</h3>
+                    <p class="feature-desc">Our solutions are designed to scale seamlessly with your business, delivering
+                        performance that keeps pace with your growth.</p>
+                </div>
+                <div class="feature-box fade-in">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="feature-title">Client-Centric Innovation</h3>
+                    <p class="feature-desc">We develop solutions in close collaboration with our clients, ensuring that our
+                        innovations address real business challenges.</p>
+                </div>
             </div>
-            <div class="feature-box fade-in">
-                <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
-                <h3 class="feature-title">Scalability & Speed</h3>
-                <p class="feature-desc">Our solutions are designed to scale seamlessly with your business, delivering performance that keeps pace with your growth.</p>
+            
+            <div class="testimonials-container fade-in">
+                <h3 class="testimonials-title">What Our Clients Say</h3>
+                <div class="swiper testimonials-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide testimonial-slide">
+                            <div class="testimonial">
+                                <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                                <p class="testimonial-text">NIVARCS transformed our entire data pipeline with their AI solutions. We've seen a 200% increase in processing speed and significant cost reduction.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <img src="/api/placeholder/80/80" alt="Sarah Johnson">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Sarah Johnson</h4>
+                                        <p>CTO, TechGlobal Inc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide testimonial-slide">
+                            <div class="testimonial">
+                                <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                                <p class="testimonial-text">The AI strategy developed by NIVARCS has completely revolutionized our customer service operations. Response times are down 70% while satisfaction is up 45%.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <img src="/api/placeholder/80/80" alt="David Chen">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>David Chen</h4>
+                                        <p>CEO, Innovate Solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide testimonial-slide">
+                            <div class="testimonial">
+                                <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+                                <p class="testimonial-text">Working with NIVARCS on our cloud migration was seamless. Their expertise in AI-optimized infrastructure has given us a competitive edge in our market.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-image">
+                                        <img src="/api/placeholder/80/80" alt="Maria Rodriguez">
+                                    </div>
+                                    <div class="author-info">
+                                        <h4>Maria Rodriguez</h4>
+                                        <p>CIO, FinTech Solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
-            <div class="feature-box fade-in">
-                <div class="feature-icon"><i class="fas fa-users"></i></div>
-                <h3 class="feature-title">Client-Centric Innovation</h3>
-                <p class="feature-desc">We develop solutions in close collaboration with our clients, ensuring that our innovations address real business challenges.</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="section-header fade-in">
+            <h2>Latest Insights</h2>
+            <p>Explore our latest thoughts on AI innovation, digital transformation, and business strategy.</p>
+        </div>
+        
+        <div class="blog-container">
+            <div class="blog-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <img src="/api/placeholder/600/400" alt="AI Trends">
+                        <div class="blog-category">AI Trends</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 25, 2025</div>
+                        <h3 class="blog-title">The Evolution of Generative AI in Enterprise Applications</h3>
+                        <p class="blog-excerpt">Discover how generative AI is transforming enterprise operations and creating new possibilities for business innovation.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <img src="/api/placeholder/600/400" alt="Business Strategy">
+                        <div class="blog-category">Business Strategy</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 18, 2025</div>
+                        <h3 class="blog-title">Strategic Implementation of AI for Business Growth</h3>
+                        <p class="blog-excerpt">Learn how companies are strategically implementing AI to drive sustainable business growth and competitive advantage.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <img src="/api/placeholder/600/400" alt="Technical Insights">
+                        <div class="blog-category">Technical Insights</div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-date">March 10, 2025</div>
+                        <h3 class="blog-title">Advanced MLOps Practices for Enterprise AI</h3>
+                        <p class="blog-excerpt">Explore the latest MLOps practices that are helping enterprises scale their AI initiatives effectively.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="blog-featured fade-in">
+                <div class="featured-content">
+                    <div class="featured-label">Featured Article</div>
+                    <h3 class="featured-title">The Future of Work: AI Collaboration and Human Potential</h3>
+                    <p class="featured-excerpt">How AI is reshaping the workplace and creating new opportunities for human-machine collaboration that amplifies human potential rather than replacing it.</p>
+                    <a href="#" class="btn btn-secondary">Read the Report</a>
+                </div>
+                <div class="featured-image">
+                    <img src="/api/placeholder/800/600" alt="Future of Work">
+                </div>
+            </div>
+            
+            <div class="blog-cta fade-in">
+                <h3>Stay Updated with AI Trends</h3>
+                <p>Subscribe to our newsletter for the latest insights and updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
+        <div class="contact-world-map">
+            <div class="map-marker" style="top: 30%; left: 20%;">
+                <div class="marker-dot"></div>
+                <div class="marker-pulse"></div>
+                <div class="marker-tooltip">New York</div>
+            </div>
+            <div class="map-marker" style="top: 35%; left: 45%;">
+                <div class="marker-dot"></div>
+                <div class="marker-pulse"></div>
+                <div class="marker-tooltip">London</div>
+            </div>
+            <div class="map-marker" style="top: 40%; left: 70%;">
+                <div class="marker-dot"></div>
+                <div class="marker-pulse"></div>
+                <div class="marker-tooltip">Tokyo</div>
+            </div>
+            <div class="map-marker" style="top: 60%; left: 80%;">
+                <div class="marker-dot"></div>
+                <div class="marker-pulse"></div>
+                <div class="marker-tooltip">Sydney</div>
+            </div>
+        </div>
+        
         <div class="section-header fade-in">
             <h2>Contact Us</h2>
             <p>Ready to transform your business with AI? Get in touch with our team of experts.</p>
         </div>
+        
         <div class="contact-container">
+            <div class="contact-tabs fade-in">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="inquire">General Inquiry</button>
+                    <button class="tab-button" data-tab="partner">Partnership</button>
+                    <button class="tab-button" data-tab="support">Technical Support</button>
+                </div>
+                
+                <div class="tab-content">
+                    <div class="tab-pane active" id="inquire">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control form-select">
+                                    <option selected disabled>Select Inquiry Type</option>
+                                    <option>AI Strategy Consultation</option>
+                                    <option>Automation Solutions</option>
+                                    <option>Cloud Services</option>
+                                    <option>Cybersecurity</option>
+                                    <option>Digital Branding</option>
+                                    <option>Data Analytics</option>
+                                    <option>General Inquiry</option>
+                                </select>
+                                <div class="form-select-arrow"><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="tab-pane" id="partner">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Company Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Business Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Tell us about your partnership interests" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Partnership Request</button>
+                        </form>
+                    </div>
+                    
+                    <div class="tab-pane" id="support">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Support Ticket ID (if applicable)">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control form-select">
+                                    <option selected disabled>Support Category</option>
+                                    <option>Technical Issue</option>
+                                    <option>Account Access</option>
+                                    <option>Billing Question</option>
+                                    <option>Product Assistance</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="form-select-arrow"><i class="fas fa-chevron-down"></i></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Describe your issue in detail" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit Support Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
             <div class="contact-info fade-in">
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="contact-text">
-                        <h4>Headquarters</h4>
-                        <p>1234 Innovation Drive, Tech City, TC 98765</p>
+                <div class="contact-card headquarters">
+                    <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h4>Global Headquarters</h4>
+                    <p>1234 Innovation Drive</p>
+                    <p>Tech City, TC 98765</p>
+                    <p>United States</p>
+                </div>
+                
+                <div class="contact-card connect">
+                    <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                    <h4>Connect With Us</h4>
+                    <p><strong>Email:</strong> info@nivarcs.com</p>
+                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="contact-text">
-                        <h4>Email</h4>
-                        <p>info@nivarcs.com</p>
-                    </div>
+                
+                <div class="contact-card hours">
+                    <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                    <h4>Business Hours</h4>
+                    <p><strong>Monday-Friday:</strong> 9AM - 6PM EST</p>
+                    <p><strong>Global Support:</strong> 24/7 for Enterprise Clients</p>
+                    <p><strong>Response Time:</strong> Within 4 hours</p>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                    <div class="contact-text">
-                        <h4>Phone</h4>
-                        <p>+1 (555) 123-4567</p>
-                    </div>
-                </div>
-                <div class="social-icons">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo">NIVARCS<span class="logo-dot">.</span></a>
+                <p class="footer-tagline">Shaping the Future with AI Precision</p>
+                <div class="footer-social">
                     <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            <form class="contact-form fade-in">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <select class="form-control form-select">
-                        <option selected disabled>Select Inquiry Type</option>
-                        <option>AI Strategy Consultation</option>
-                        <option>Automation Solutions</option>
-                        <option>Cloud Services</option>
-                        <option>Cybersecurity</option>
-                        <option>Digital Branding</option>
-                        <option>Data Analytics</option>
-                        <option>General Inquiry</option>
-                    </select>
-                    <div class="form-select-arrow"><i class="fas fa-chevron-down"></i></div>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <a href="#home" class="logo">NIVARCS<span class="logo-dot">.</span></a>
+            
             <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#why-us">Why Us</a>
-                <a href="#contact">Contact</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <div class="footer-links-column">
+                    <h4>Company</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#why-us">Why Choose Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Services</h4>
+                    <a href="#services">AI Strategy</a>
+                    <a href="#services">Automation</a>
+                    <a href="#services">Cloud Solutions</a>
+                    <a href="#services">Cybersecurity</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Resources</h4>
+                    <a href="#blog">Blog</a>
+                    <a href="#">Case Studies</a>
+                    <a href="#">Whitepapers</a>
+                    <a href="#">Webinars</a>
+                </div>
+                <div class="footer-links-column">
+                    <h4>Support</h4>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Documentation</a>
+                    <a href="#">Status</a>
+                </div>
             </div>
         </div>
-        <div class="copyright">© 2025 NIVARCS. All rights reserved.</div>
+        
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <p>&copy; 2025 NIVARCS. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Dark Mode Toggle -->
-    <div class="dark-mode-toggle">
-        <i class="fas fa-moon"></i>
-    </div>
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
 
-    <!-- Chatbot Toggle -->
-    <div class="chatbot-toggle">
-        <i class="fas fa-comment-dots"></i>
-    </div>
-
-    <!-- Main JavaScript -->
+    <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Initialize Swiper sliders
+        const aboutSwiper = new Swiper('.about-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.about-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.about-swiper .swiper-button-next',
+                prevEl: '.about-swiper .swiper-button-prev',
+            },
+        });
+
+        const testimonialSwiper = new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.testimonials-swiper .swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Animation for stats counter
+        const statBoxes = document.querySelectorAll('.stat-number');
+        const animateStats = () => {
+            statBoxes.forEach(stat => {
+                const targetCount = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // ms
+                const increment = targetCount / (duration / 20);
+                let currentCount = 0;
+                
+                const counter = setInterval(() => {
+                    currentCount += increment;
+                    if (currentCount >= targetCount) {
+                        stat.textContent = targetCount;
+                        clearInterval(counter);
+                    } else {
+                        stat.textContent = Math.floor(currentCount);
+                    }
+                }, 20);
+            });
+        };
+
+        // Service card flip
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            const front = card.querySelector('.service-link');
+            const back = card.querySelector('.back-link');
+            
+            front.addEventListener('click', () => {
+                card.querySelector('.service-card-inner').style.transform = 'rotateY(180deg)';
+            });
+            
+            back.addEventListener('click', () => {
+                card.querySelector('.service-card-inner').style.transform = 'rotateY(0)';
+            });
+        });
+
+        // Contact form tabs
+        const tabButtons = document.querySelectorAll('.tab-button');
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and panes
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to current button and corresponding pane
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            menuToggle.querySelector('i').classList.toggle('fa-bars');
+            menuToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Scroll animations with GSAP
+        document.addEventListener('DOMContentLoaded', function() {
+            // Register ScrollTrigger plugin
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Animate fade-in elements
+            gsap.utils.toArray('.fade-in').forEach(element => {
+                gsap.from(element, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            });
+            
+            // Trigger stats counter animation when in view
+            ScrollTrigger.create({
+                trigger: '.why-us-stats',
+                start: 'top 70%',
+                onEnter: () => animateStats()
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+
+        // Back to top button visibility
+        window.addEventListener('scroll', () => {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 500) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Sticky navigation on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('main-nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        });
+    </script>
 </body>
+
 </html>
