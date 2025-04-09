@@ -290,7 +290,7 @@
         <div class="why-us-container">
             <div class="why-us-stats">
                 <div class="stat-box fade-in">
-                    <div class="stat-number" data-count="800">0</div>
+                    <div class="stat-number" data-count="1">0</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
                 <div class="stat-box fade-in">
@@ -298,11 +298,11 @@
                     <div class="stat-label">Client Satisfaction %</div>
                 </div>
                 <div class="stat-box fade-in">
-                    <div class="stat-number" data-count="12">0</div>
+                    <div class="stat-number" data-count="1">0</div>
                     <div class="stat-label">Global Offices</div>
                 </div>
                 <div class="stat-box fade-in">
-                    <div class="stat-number" data-count="250">0</div>
+                    <div class="stat-number" data-count="2">0</div>
                     <div class="stat-label">AI Experts</div>
                 </div>
             </div>
@@ -390,71 +390,1306 @@
         </div>
     </section>
 
-    <!-- Blog Section -->
-    <section id="blog" class="blog">
-        <div class="section-header fade-in">
-            <h2>Latest Insights</h2>
-            <p>Explore our latest thoughts on AI innovation, digital transformation, and business strategy.</p>
+<!-- Blog Section HTML -->
+<section id="blog" class="blog">
+    <div class="section-header fade-in">
+        <h2 class="section-title"><span>Latest Insights</span></h2>
+        <p class="section-subtitle">Explore our latest thoughts on AI innovation, digital transformation, and business strategy.</p>
+    </div>
+    
+    <div class="blog-controls">
+        <div class="blog-filter">
+            <div class="blog-filter-item active" data-filter="all">All Topics</div>
+            <div class="blog-filter-item" data-filter="ai-trends">AI Trends</div>
+            <div class="blog-filter-item" data-filter="business-strategy">Business Strategy</div>
+            <div class="blog-filter-item" data-filter="technical-insights">Technical Insights</div>
+            <div class="blog-filter-item" data-filter="digital-transformation">Digital Transformation</div>
         </div>
         
-        <div class="blog-container">
-            <div class="blog-grid">
-                <div class="blog-card fade-in">
-                    <div class="blog-image">
-                        <img src="" alt="AI Trends">
-                        <div class="blog-category">AI Trends</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">March 25, 2025</div>
-                        <h3 class="blog-title">The Evolution of Generative AI in Enterprise Applications</h3>
-                        <p class="blog-excerpt">Discover how generative AI is transforming enterprise operations and creating new possibilities for business innovation.</p>
-                        <a href="https://www2.deloitte.com/us/en/pages/consulting/articles/state-of-generative-ai-in-enterprise.html" class="https://www2.deloitte.com/us/en/pages/consulting/articles/state-of-generative-ai-in-enterprise.html">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-card fade-in">
-                    <div class="blog-image">
-                        <img src="/api/placeholder/600/400" alt="Business Strategy">
-                        <div class="blog-category">Business Strategy</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">March 18, 2025</div>
-                        <h3 class="blog-title">Strategic Implementation of AI for Business Growth</h3>
-                        <p class="blog-excerpt">Learn how companies are strategically implementing AI to drive sustainable business growth and competitive advantage.</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-card fade-in">
-                    <div class="blog-image">
-                        <img src="/api/placeholder/600/400" alt="Technical Insights">
-                        <div class="blog-category">Technical Insights</div>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-date">March 10, 2025</div>
-                        <h3 class="blog-title">Advanced MLOps Practices for Enterprise AI</h3>
-                        <p class="blog-excerpt">Explore the latest MLOps practices that are helping enterprises scale their AI initiatives effectively.</p>
-                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+        <div class="blog-sort">
+            <div class="blog-sort-button">
+                <span>Sort by: Recent</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
-            
-            <div class="blog-featured fade-in">
-                <div class="featured-content">
-                    <div class="featured-label">Featured Article</div>
-                    <h3 class="featured-title">The Future of Work: AI Collaboration and Human Potential</h3>
-                    <p class="featured-excerpt">How AI is reshaping the workplace and creating new opportunities for human-machine collaboration that amplifies human potential rather than replacing it.</p>
-                    <a href="" class="btn btn-secondary">Read the Report</a>
-                </div>
-                <div class="featured-image">
-                    <img src="/api/placeholder/800/600" alt="Future of Work">
-                </div>
-            </div>
-            
-            
         </div>
-    </section>
+    </div>
+    
+    <div class="blog-grid" id="blogGrid">
+        <!-- Blog cards will be dynamically inserted here by JavaScript -->
+        <div class="loading-indicator" id="blogLoadingIndicator">
+            <div class="spinner"></div>
+            <p>Fetching latest articles...</p>
+        </div>
+    </div>
+    
+    <div class="blog-pagination">
+        <div class="blog-pagination-item" data-page="prev"><i class="fas fa-chevron-left"></i></div>
+        <div class="blog-pagination-item active">1</div>
+        <div class="blog-pagination-item">2</div>
+        <div class="blog-pagination-item">3</div>
+        <div class="blog-pagination-item" data-page="next"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    
+    <div class="blog-newsletter">
+        <div class="blog-newsletter-content">
+            <h3 class="blog-newsletter-title">Stay Updated with Our Insights</h3>
+            <p class="blog-newsletter-desc">Subscribe to our newsletter and get the latest trends in AI, business strategy, and technology delivered to your inbox.</p>
+            <form class="blog-newsletter-form">
+                <input type="email" class="blog-newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="blog-newsletter-button">Subscribe</button>
+            </form>
+            <p class="blog-newsletter-privacy">By subscribing, you agree to our <a href="#">Privacy Policy</a>. We respect your privacy.</p>
+        </div>
+    </div>
 
+    <div class="blog-sources-info">
+        <div class="blog-sources-toggle">
+            <i class="fas fa-info-circle"></i>
+            <span>Content Sources</span>
+        </div>
+        <div class="blog-sources-panel">
+            <h4>Our content is automatically updated from these sources:</h4>
+            <ul>
+                <li><strong>Medium:</strong> AI and Technology publications</li>
+                <li><strong>Dev.to:</strong> Technical insights and tutorials</li>
+                <li><strong>NewsAPI:</strong> Business strategy and digital transformation</li>
+                <li><strong>HackerNews:</strong> Tech industry insights</li>
+                <li><strong>TechCrunch:</strong> Industry news and analysis</li>
+            </ul>
+            <p>Content is refreshed daily at 00:00 UTC</p>
+        </div>
+    </div>
+</section>
+
+<!-- Add CSS for blog cards and status indicators -->
+<style>
+    /* Blog Section Styles */
+    .blog {
+        padding: 80px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-subtitle {
+        font-size: 18px;
+        color: #ffffff;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    /* Blog Controls */
+    .blog-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .blog-filter {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .blog-filter-item {
+        padding: 8px 16px;
+        border-radius: 30px;
+        background-color:  rgba(26, 115, 232, 0.15);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .blog-filter-item:hover {
+        background-color:  rgba(26, 115, 232, 0.15);
+    }
+    
+    .blog-filter-item.active {
+        background-color:   rgba(26, 115, 232, 0.15);
+        color:   rgb(244, 244, 244);
+    }
+    
+    .blog-sort {
+        position: relative;
+    }
+    
+    .blog-sort-button {
+        padding: 8px 16px;
+        border-radius: 30px;
+        background-color:  rgba(26, 115, 232, 0.15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .blog-sort-button:hover {
+        background-color: #e0e0e0;
+    }
+    
+    /* Blog Grid */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+        min-height: 400px; /* Ensure grid has height even when empty */
+        position: relative;
+    }
+    
+    /* Loading Indicator */
+    .loading-indicator {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(26, 115, 232, 0.2);
+        border-radius: 50%;
+        border-top-color: #2563eb;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    
+    /* Blog Card */
+    .blog-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        background-color: rgba(26, 115, 232, 0.15);
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .blog-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .blog-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+    
+    .blog-card-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+    
+    .blog-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .blog-card:hover .blog-card-image img {
+        transform: scale(1.05);
+    }
+    
+    .blog-card-category {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+    
+    .blog-card-status {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        color: white;
+        gap: 6px;
+    }
+    
+    .blog-card-status.new {
+        background-color: #3b82f6;
+    }
+    
+    .blog-card-status.trending {
+        background-color: #ef4444;
+    }
+    
+    .blog-card-status.updated {
+        background-color: #10b981;
+    }
+    
+    .blog-card-source {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        background-color: rgba(0,0,0,0.6);
+        color: white;
+    }
+    
+    .blog-card-status-pulse {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: white;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 1; }
+        50% { opacity: 0.3; }
+        100% { opacity: 1; }
+    }
+    
+    .blog-card-content {
+        padding: 20px;
+    }
+    
+    .blog-card-date {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .blog-card-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        font-weight: 600;
+    }
+    
+    .blog-card-excerpt {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+    
+    .blog-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .blog-card-author {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .blog-card-author-image {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    
+    .blog-card-author-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .blog-card-author-name {
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .blog-card-readmore {
+        font-size: 14px;
+        color: #2563eb;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .blog-card-readmore:hover {
+        color: #1e40af;
+    }
+    
+    /* Blog Pagination */
+    .blog-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 50px;
+    }
+    
+    .blog-pagination-item {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background-color: #f0f0f0;
+    }
+    
+    .blog-pagination-item:hover {
+        background-color: #e0e0e0;
+    }
+    
+    .blog-pagination-item.active {
+        background-color: #2563eb;
+        color: white;
+    }
+    
+    /* Blog Newsletter */
+    .blog-newsletter {
+        background-color: #f8fafc;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    
+    .blog-newsletter-content {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .blog-newsletter-title {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .blog-newsletter-desc {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 25px;
+    }
+    
+    .blog-newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .blog-newsletter-input {
+        flex: 1;
+        padding: 14px 20px;
+        border-radius: 30px;
+        border: 1px solid #ddd;
+        outline: none;
+        font-size: 16px;
+    }
+    
+    .blog-newsletter-input:focus {
+        border-color: #2563eb;
+    }
+    
+    .blog-newsletter-button {
+        padding: 14px 25px;
+        border-radius: 30px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .blog-newsletter-button:hover {
+        background-color: #1e40af;
+    }
+    
+    .blog-newsletter-privacy {
+        font-size: 14px;
+        color: #777;
+    }
+    
+    .blog-newsletter-privacy a {
+        color: #2563eb;
+        text-decoration: none;
+    }
+    
+    /* Blog Sources Info */
+    .blog-sources-info {
+        margin-top: 30px;
+        position: relative;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+    
+    .blog-sources-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        color: #2563eb;
+        font-size: 14px;
+    }
+    
+    .blog-sources-toggle:hover {
+        text-decoration: underline;
+    }
+    
+    .blog-sources-panel {
+        background-color: rgba(26, 115, 232, 0.15);
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 15px;
+        display: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .blog-sources-panel h4 {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+    .blog-sources-panel ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .blog-sources-panel li {
+        margin-bottom: 8px;
+    }
+    
+    .blog-sources-panel p {
+        margin-bottom: 0;
+        font-style: italic;
+        font-size: 14px;
+    }
+    
+    /* Error state */
+    .blog-error {
+        text-align: center;
+        padding: 30px;
+        background-color: rgba(255, 0, 0, 0.05);
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    
+    .blog-error h3 {
+        color: #e53e3e;
+        margin-bottom: 10px;
+    }
+    
+    .blog-error p {
+        margin-bottom: 15px;
+    }
+    
+    .blog-error-retry {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #2563eb;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    /* Last Updated Info */
+    .blog-last-updated {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    /* Responsive Adjustments */
+    @media screen and (max-width: 768px) {
+        .blog-controls {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .blog-filter {
+            margin-bottom: 10px;
+        }
+        
+        .blog-newsletter-form {
+            flex-direction: column;
+        }
+        
+        .blog-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    /* Animation */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s forwards;
+    }
+    
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<!-- Add JavaScript for functionality -->
+<script>
+/**
+ * Auto-updating blog system that fetches content from multiple sources
+ * This script handles:
+ * 1. Fetching content from external APIs
+ * 2. Content categorization and formatting
+ * 3. Periodic updates
+ * 4. Caching for performance
+ * 5. Fallback mechanisms
+ */
+
+// Configuration for the blog system
+const blogConfig = {
+    refreshInterval: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+    cacheKey: 'blog_articles_cache',
+    cacheExpiry: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+    pageSize: 8, // Number of articles per page
+    currentPage: 1,
+    categories: {
+        'ai-trends': ['ai', 'artificial intelligence', 'machine learning', 'deep learning', 'nlp'],
+        'business-strategy': ['business', 'strategy', 'management', 'leadership', 'innovation'],
+        'technical-insights': ['programming', 'development', 'coding', 'software', 'tech', 'technology'],
+        'digital-transformation': ['digital', 'transformation', 'digitalization', 'automation', 'future of work']
+    },
+    sources: [
+        {
+            name: 'NewsAPI',
+            endpoint: 'https://api.example.com/newsapi-proxy', // Would be your server proxy endpoint
+            params: {
+                q: 'AI OR "artificial intelligence" OR technology OR digital',
+                sortBy: 'publishedAt',
+                language: 'en'
+            }
+        },
+        {
+            name: 'Medium',
+            endpoint: 'https://api.example.com/medium-proxy', // Would be your server proxy endpoint
+            params: {
+                tag: 'artificial-intelligence',
+                count: 10
+            }
+        },
+        {
+            name: 'Dev.to',
+            endpoint: 'https://api.example.com/devto-proxy', // Would be your server proxy endpoint
+            params: {
+                tag: 'ai',
+                top: 10
+            }
+        },
+        {
+            name: 'HackerNews',
+            endpoint: 'https://api.example.com/hackernews-proxy', // Would be your server proxy endpoint
+            params: {
+                query: 'ai technology',
+                count: 10
+            }
+        }
+    ],
+    // Fallback data in case API calls fail
+    fallbackData: [
+        {
+            id: 'fallback-1',
+            category: "ai-trends",
+            categoryDisplay: "AI Trends",
+            image: "/api/placeholder/600/400",
+            date: "April 2, 2025",
+            title: "The Evolution of Generative AI in Enterprise Applications",
+            excerpt: "Discover how generative AI is transforming enterprise operations and creating new possibilities for business innovation across sectors.",
+            author: {
+                name: "Dr. Elena Rodriguez",
+                image: "/api/placeholder/35/35"
+            },
+            source: "NewsAPI",
+            status: "new",
+            link: "#",
+            timestamp: Date.now() - 2 * 24 * 60 * 60 * 1000
+        },
+        {
+            id: 'fallback-2',
+            category: "business-strategy",
+            categoryDisplay: "Business Strategy",
+            image: "/api/placeholder/600/400",
+            date: "March 28, 2025",
+            title: "Strategic Implementation of AI for Business Growth",
+            excerpt: "Learn how leading companies are strategically implementing AI to drive sustainable business growth and maintain competitive advantage.",
+            author: {
+                name: "Michael Chen",
+                image: "/api/placeholder/35/35"
+            },
+            source: "Medium",
+            status: "trending",
+            link: "#",
+            timestamp: Date.now() - 4 * 24 * 60 * 60 * 1000
+        },
+        {
+            id: 'fallback-3',
+            category: "technical-insights",
+            categoryDisplay: "Technical Insights",
+            image: "/api/placeholder/600/400",
+            date: "March 25, 2025",
+            title: "Advanced MLOps Practices for Enterprise AI",
+            excerpt: "Explore the latest MLOps practices that are helping enterprises scale their AI initiatives effectively and maintain model performance.",
+            author: {
+                name: "Dr. James Wilson",
+                image: "/api/placeholder/35/35"
+            },
+            source: "Dev.to",
+            link: "#",
+            timestamp: Date.now() - 7 * 24 * 60 * 60 * 1000
+        },
+        {
+            id: 'fallback-4',
+            category: "digital-transformation",
+            categoryDisplay: "Digital Transformation",
+            image: "/api/placeholder/600/400",
+            date: "March 22, 2025",
+            title: "Digital Transformation in Healthcare: AI-Driven Diagnostics",
+            excerpt: "How healthcare providers are leveraging AI for improved diagnostics, personalized treatment plans, and enhanced patient outcomes.",
+            author: {
+                name: "Dr. Sarah Johnson",
+                image: "/api/placeholder/35/35"
+            },
+            source: "HackerNews",
+            status: "updated",
+            link: "#",
+            timestamp: Date.now() - 10 * 24 * 60 * 60 * 1000
+        }
+    ]
+};
+
+// Store for blog articles
+let allBlogArticles = [];
+let filteredArticles = [];
+let currentCategory = 'all';
+let currentSortMethod = 'recent';
+
+// Initialize the blog system
+document.addEventListener('DOMContentLoaded', function() {
+    // Set up UI interaction handlers
+    setupUIInteractions();
+    
+    // Load articles (from cache or fetch new ones)
+    loadArticles();
+    
+    // Set up auto-refresh mechanism
+    setupAutoRefresh();
+});
+
+// Setup UI interaction handlers
+function setupUIInteractions() {
+    // Filter functionality
+    const filterItems = document.querySelectorAll('.blog-filter-item');
+    filterItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Update active state
+            filterItems.forEach(fi => fi.classList.remove('active'));
+            item.classList.add('active');
+            
+            // Filter articles
+            currentCategory = item.getAttribute('data-filter');
+            filterAndSortArticles();
+        });
+    });
+    
+    // Sort button functionality
+    const sortButton = document.querySelector('.blog-sort-button');
+    sortButton.addEventListener('click', () => {
+        // Cycle through sort methods
+        if (currentSortMethod === 'recent') {
+            currentSortMethod = 'trending';
+            sortButton.querySelector('span').textContent = 'Sort by: Trending';
+        } else if (currentSortMethod === 'trending') {
+            currentSortMethod = 'title';
+            sortButton.querySelector('span').textContent = 'Sort by: Title';
+        } else {
+            currentSortMethod = 'recent';
+            sortButton.querySelector('span').textContent = 'Sort by: Recent';
+        }
+        
+        filterAndSortArticles();
+    });
+    
+    // Pagination functionality
+    const paginationItems = document.querySelectorAll('.blog-pagination-item');
+    paginationItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const pageAction = item.getAttribute('data-page');
+            
+            if (pageAction === 'prev' && blogConfig.currentPage > 1) {
+                blogConfig.currentPage--;
+            } else if (pageAction === 'next' && blogConfig.currentPage < Math.ceil(filteredArticles.length / blogConfig.pageSize)) {
+                blogConfig.currentPage++;
+            } else if (!pageAction) {
+                blogConfig.currentPage = parseInt(item.textContent);
+            }
+            
+            // Update active state
+            updatePaginationUI();
+            
+            // Render articles for current page
+            renderBlogArticles(getPaginatedArticles());
+        });
+    });
+    
+    // Blog sources info toggle
+    const sourcesToggle = document.querySelector('.blog-sources-toggle');
+    const sourcesPanel = document.querySelector('.blog-sources-panel');
+    
+    sourcesToggle.addEventListener('click', () => {
+        const isVisible = sourcesPanel.style.display === 'block';
+        sourcesPanel.style.display = isVisible ? 'none' : 'block';
+    });
+}
+
+// Load articles from cache or fetch new ones
+function loadArticles() {
+    const cachedData = getCachedArticles();
+    
+    if (cachedData && cachedData.timestamp && (Date.now() - cachedData.timestamp < blogConfig.cacheExpiry)) {
+        // Use cached data if it's still valid
+        allBlogArticles = cachedData.articles;
+        
+        // Update the last updated time display
+        updateLastUpdatedInfo(new Date(cachedData.timestamp));
+        
+        // Filter, sort and render articles
+        filterAndSortArticles();
+    } else {
+        // Fetch new data
+        fetchArticlesFromAllSources();
+    }
+}
+
+// Get cached articles from localStorage
+function getCachedArticles() {
+    try {
+        const cachedData = localStorage.getItem(blogConfig.cacheKey);
+        return cachedData ? JSON.parse(cachedData) : null;
+    } catch (error) {
+        console.error('Error retrieving cached articles:', error);
+        return null;
+    }
+}
+
+// Save articles to cache
+function cacheArticles(articles) {
+    try {
+        const cacheData = {
+            articles: articles,
+            timestamp: Date.now()
+        };
+        localStorage.setItem(blogConfig.cacheKey, JSON.stringify(cacheData));
+    } catch (error) {
+        console.error('Error caching articles:', error);
+    }
+}
+
+// Setup automatic refresh mechanism
+function setupAutoRefresh() {
+    // Check if it's time to refresh data
+    setInterval(() => {
+        const cachedData = getCachedArticles();
+        if (!cachedData || !cachedData.timestamp || (Date.now() - cachedData.timestamp > blogConfig.refreshInterval)) {
+            console.log('Auto-refreshing blog content...');
+            fetchArticlesFromAllSources();
+        }
+    }, 60 * 60 * 1000); // Check every hour
+}
+
+// Fetch articles from all configured sources
+function fetchArticlesFromAllSources() {
+    showLoadingIndicator(true);
+    
+    // In a real implementation, you would make actual API calls here
+    // For demonstration, we'll simulate API responses with setTimeout
+    
+    Promise.all(blogConfig.sources.map(source => fetchFromSource(source)))
+        .then(resultsArrays => {
+            // Flatten the array of arrays
+            const allResults = [].concat(...resultsArrays);
+            
+            // Process and categorize the fetched articles
+            processArticles(allResults);
+            
+            // Hide loading indicator
+            showLoadingIndicator(false);
+            
+            // Update the last updated time display
+            updateLastUpdatedInfo(new Date());
+        })
+        .catch(error => {
+            console.error('Error fetching articles:', error);
+            showError('Unable to fetch the latest articles', 'Please check your internet connection and try again.');
+            
+            // Use fallback data if available
+            if (blogConfig.fallbackData && blogConfig.fallbackData.length > 0) {
+                processArticles(blogConfig.fallbackData);
+            }
+            
+            // Hide loading indicator
+            showLoadingIndicator(false);
+        });
+}
+
+// Simulate fetching from a source (in real implementation, this would make an API call)
+function fetchFromSource(source) {
+    return new Promise((resolve) => {
+        // Simulate network delay
+        setTimeout(() => {
+            // For demo purposes, return sample data based on the source
+            const articles = generateSampleArticlesForSource(source);
+            resolve(articles);
+        }, 1500); // Simulate a delay of 1.5 seconds
+    });
+}
+
+// Generate sample articles for a source (for demo purposes) - completing the function
+function generateSampleArticlesForSource(source) {
+        const titles = [
+            'The Future of AI in Financial Services',
+            'How Machine Learning is Revolutionizing Healthcare',
+            'Digital Transformation Strategies for Small Businesses',
+            'The Ethics of Artificial Intelligence in Decision Making',
+            'Cloud Computing Trends for Enterprise Applications',
+            'Quantum Computing: The Next Frontier in Technology',
+            'Blockchain Applications Beyond Cryptocurrency',
+            'The Role of Big Data in Modern Marketing',
+            'Cybersecurity Best Practices for Remote Teams',
+            'Sustainable Technology: Green IT for a Better Future'
+        ];
+        
+        // Generate 2-5 random articles for this source
+        const articleCount = Math.floor(Math.random() * 4) + 2;
+        const sourceArticles = [];
+        
+        for (let i = 0; i < articleCount; i++) {
+            const randomTitleIndex = Math.floor(Math.random() * titles.length);
+            const title = titles[randomTitleIndex];
+            
+            // Create a random article
+            const article = {
+                id: `${source.name.toLowerCase()}-${Date.now()}-${i}`,
+                title: title,
+                excerpt: `This is a sample article from ${source.name} about ${title.toLowerCase()}.`,
+                date: formatDate(new Date(Date.now() - Math.floor(Math.random() * 14) * 24 * 60 * 60 * 1000)),
+                timestamp: Date.now() - Math.floor(Math.random() * 14) * 24 * 60 * 60 * 1000,
+                image: `/api/placeholder/${600}/${400}`,
+                author: {
+                    name: getRandomAuthorName(),
+                    image: `/api/placeholder/${35}/${35}`
+                },
+                source: source.name,
+                link: '#',
+                category: getRandomCategory(),
+                categoryDisplay: getCategoryDisplay(getRandomCategory())
+            };
+            
+            // Randomly add status to some articles
+            const statusRandom = Math.random();
+            if (statusRandom < 0.2) {
+                article.status = 'new';
+            } else if (statusRandom < 0.3) {
+                article.status = 'trending';
+            } else if (statusRandom < 0.4) {
+                article.status = 'updated';
+            }
+            
+            sourceArticles.push(article);
+        }
+        
+        return sourceArticles;
+    }
+
+    // Helper functions for generating sample data
+    function getRandomAuthorName() {
+        const firstNames = ['John', 'Sarah', 'Michael', 'Emily', 'David', 'Lisa', 'Robert', 'Jennifer', 'Alex', 'Elena', 'James', 'Sophia'];
+        const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Wilson', 'Chen'];
+        
+        const randomFirst = firstNames[Math.floor(Math.random() * firstNames.length)];
+        const randomLast = lastNames[Math.floor(Math.random() * lastNames.length)];
+        
+        return `${randomFirst} ${randomLast}`;
+    }
+
+    function getRandomCategory() {
+        const categories = ['ai-trends', 'business-strategy', 'technical-insights', 'digital-transformation'];
+        return categories[Math.floor(Math.random() * categories.length)];
+    }
+
+    function getCategoryDisplay(category) {
+        const categoryMap = {
+            'ai-trends': 'AI Trends',
+            'business-strategy': 'Business Strategy',
+            'technical-insights': 'Technical Insights',
+            'digital-transformation': 'Digital Transformation'
+        };
+        
+        return categoryMap[category] || 'General';
+    }
+
+    // Format date for display
+    function formatDate(date) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }
+
+    // Process and categorize the fetched articles
+    function processArticles(articles) {
+        // Process and categorize each article
+        allBlogArticles = articles.map(article => {
+            // If category is not already assigned, determine it based on content
+            if (!article.category) {
+                article.category = determineCategory(article.title + ' ' + article.excerpt);
+            }
+            
+            // If category display is not set, set it based on category
+            if (!article.categoryDisplay) {
+                article.categoryDisplay = getCategoryDisplay(article.category);
+            }
+            
+            return article;
+        });
+        
+        // Cache the processed articles
+        cacheArticles(allBlogArticles);
+        
+        // Filter, sort and render the articles
+        filterAndSortArticles();
+    }
+
+    // Determine category based on article content
+    function determineCategory(content) {
+        content = content.toLowerCase();
+        
+        // Check each category's keywords
+        for (const [category, keywords] of Object.entries(blogConfig.categories)) {
+            for (const keyword of keywords) {
+                if (content.includes(keyword.toLowerCase())) {
+                    return category;
+                }
+            }
+        }
+        
+        // Default category if no match found
+        return 'business-strategy';
+    }
+
+    // Filter and sort articles based on current selections
+    function filterAndSortArticles() {
+        // Apply category filter
+        if (currentCategory === 'all') {
+            filteredArticles = [...allBlogArticles];
+        } else {
+            filteredArticles = allBlogArticles.filter(article => article.category === currentCategory);
+        }
+        
+        // Apply sorting
+        sortArticles();
+        
+        // Reset to first page
+        blogConfig.currentPage = 1;
+        
+        // Update pagination UI
+        updatePaginationUI();
+        
+        // Get paginated articles and render them
+        const paginatedArticles = getPaginatedArticles();
+        renderBlogArticles(paginatedArticles);
+    }
+
+    // Sort articles based on current sort method
+    function sortArticles() {
+        switch (currentSortMethod) {
+            case 'recent':
+                filteredArticles.sort((a, b) => b.timestamp - a.timestamp);
+                break;
+            case 'trending':
+                // First by status (trending first), then by timestamp
+                filteredArticles.sort((a, b) => {
+                    if (a.status === 'trending' && b.status !== 'trending') {
+                        return -1;
+                    } else if (a.status !== 'trending' && b.status === 'trending') {
+                        return 1;
+                    } else {
+                        return b.timestamp - a.timestamp;
+                    }
+                });
+                break;
+            case 'title':
+                filteredArticles.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+        }
+    }
+
+    // Get articles for the current page
+    function getPaginatedArticles() {
+        const startIndex = (blogConfig.currentPage - 1) * blogConfig.pageSize;
+        const endIndex = startIndex + blogConfig.pageSize;
+        
+        return filteredArticles.slice(startIndex, endIndex);
+    }
+
+    // Update pagination UI based on current state
+    function updatePaginationUI() {
+        const totalPages = Math.ceil(filteredArticles.length / blogConfig.pageSize);
+        const paginationContainer = document.querySelector('.blog-pagination');
+        
+        // Clear existing pagination items
+        paginationContainer.innerHTML = '';
+        
+        // Add "Previous" button
+        const prevBtn = document.createElement('div');
+        prevBtn.className = 'blog-pagination-item';
+        prevBtn.setAttribute('data-page', 'prev');
+        prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevBtn.addEventListener('click', () => {
+            if (blogConfig.currentPage > 1) {
+                blogConfig.currentPage--;
+                updatePaginationUI();
+                renderBlogArticles(getPaginatedArticles());
+            }
+        });
+        paginationContainer.appendChild(prevBtn);
+        
+        // Add page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            const pageItem = document.createElement('div');
+            pageItem.className = 'blog-pagination-item';
+            if (i === blogConfig.currentPage) {
+                pageItem.classList.add('active');
+            }
+            pageItem.textContent = i.toString();
+            pageItem.addEventListener('click', () => {
+                blogConfig.currentPage = i;
+                updatePaginationUI();
+                renderBlogArticles(getPaginatedArticles());
+            });
+            paginationContainer.appendChild(pageItem);
+        }
+        
+        // Add "Next" button
+        const nextBtn = document.createElement('div');
+        nextBtn.className = 'blog-pagination-item';
+        nextBtn.setAttribute('data-page', 'next');
+        nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextBtn.addEventListener('click', () => {
+            if (blogConfig.currentPage < totalPages) {
+                blogConfig.currentPage++;
+                updatePaginationUI();
+                renderBlogArticles(getPaginatedArticles());
+            }
+        });
+        paginationContainer.appendChild(nextBtn);
+    }
+
+    // Render blog articles to the grid
+    function renderBlogArticles(articles) {
+        const blogGrid = document.getElementById('blogGrid');
+        
+        // Clear grid (except loading indicator)
+        const loadingIndicator = document.getElementById('blogLoadingIndicator');
+        blogGrid.innerHTML = '';
+        blogGrid.appendChild(loadingIndicator);
+        
+        // Hide loading indicator
+        showLoadingIndicator(false);
+        
+        // If no articles, show empty state
+        if (articles.length === 0) {
+            showEmptyState();
+            return;
+        }
+        
+        // Add articles to grid with staggered animations
+        articles.forEach((article, index) => {
+            const articleElement = createArticleElement(article);
+            blogGrid.appendChild(articleElement);
+            
+            // Staggered animation with setTimeout
+            setTimeout(() => {
+                articleElement.classList.add('visible');
+            }, index * 100);
+        });
+    }
+
+    // Create an article element
+    function createArticleElement(article) {
+        const articleElement = document.createElement('div');
+        articleElement.className = 'blog-card';
+        
+        let statusHTML = '';
+        if (article.status) {
+            const statusText = {
+                'new': 'New',
+                'trending': 'Trending',
+                'updated': 'Updated'
+            }[article.status];
+            
+            statusHTML = `
+                <div class="blog-card-status ${article.status}">
+                    <div class="blog-card-status-pulse"></div>
+                    <span>${statusText}</span>
+                </div>
+            `;
+        }
+        
+        articleElement.innerHTML = `
+            <div class="blog-card-image">
+                <img src="${article.image}" alt="${article.title}">
+                <div class="blog-card-category">${article.categoryDisplay}</div>
+                <div class="blog-card-source">${article.source}</div>
+                ${statusHTML}
+            </div>
+            <div class="blog-card-content">
+                <div class="blog-card-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>${article.date}</span>
+                </div>
+                <h3 class="blog-card-title">${article.title}</h3>
+                <p class="blog-card-excerpt">${article.excerpt}</p>
+                <div class="blog-card-footer">
+                    <div class="blog-card-author">
+                        <div class="blog-card-author-image">
+                            <img src="${article.author.image}" alt="${article.author.name}">
+                        </div>
+                        <div class="blog-card-author-name">${article.author.name}</div>
+                    </div>
+                    <a href="${article.link}" class="blog-card-readmore">
+                        Read More
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        `;
+        
+        return articleElement;
+    }
+
+    // Show/hide loading indicator
+    function showLoadingIndicator(show) {
+        const loadingIndicator = document.getElementById('blogLoadingIndicator');
+        if (loadingIndicator) {
+            loadingIndicator.style.display = show ? 'flex' : 'none';
+        }
+    }
+
+    // Show empty state when no articles match filter
+    function showEmptyState() {
+        const blogGrid = document.getElementById('blogGrid');
+        
+        const emptyState = document.createElement('div');
+        emptyState.className = 'blog-empty-state';
+        emptyState.innerHTML = `
+            <div class="blog-empty-icon">
+                <i class="far fa-folder-open fa-3x"></i>
+            </div>
+            <h3>No articles found</h3>
+            <p>No articles match your current filter. Try selecting a different category or check back later for new content.</p>
+        `;
+        
+        blogGrid.appendChild(emptyState);
+    }
+
+    // Show error state
+    function showError(title, message) {
+        const blogGrid = document.getElementById('blogGrid');
+        
+        const errorElement = document.createElement('div');
+        errorElement.className = 'blog-error';
+        errorElement.innerHTML = `
+            <h3>${title}</h3>
+            <p>${message}</p>
+            <div class="blog-error-retry">Try Again</div>
+        `;
+        
+        // Add event listener to retry button
+        errorElement.querySelector('.blog-error-retry').addEventListener('click', () => {
+            fetchArticlesFromAllSources();
+        });
+        
+        blogGrid.innerHTML = '';
+        blogGrid.appendChild(errorElement);
+    }
+
+    // Update the last updated information
+    function updateLastUpdatedInfo(date) {
+        // Check if element exists, create if not
+        let lastUpdatedElement = document.querySelector('.blog-last-updated');
+        
+        if (!lastUpdatedElement) {
+            lastUpdatedElement = document.createElement('div');
+            lastUpdatedElement.className = 'blog-last-updated';
+            document.querySelector('.blog').appendChild(lastUpdatedElement);
+        }
+        
+        // Update content
+        lastUpdatedElement.textContent = `Content last updated: ${formatDate(date)} at ${date.toLocaleTimeString()}`;
+    }
+
+    // Handle newsletter subscription
+    document.querySelector('.blog-newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const emailInput = this.querySelector('.blog-newsletter-input');
+        const email = emailInput.value.trim();
+        
+        if (email && isValidEmail(email)) {
+            // In a real implementation, you'd send this to a server
+            alert(`Thank you for subscribing with ${email}! You'll receive our newsletter soon.`);
+            emailInput.value = '';
+        } else {
+            alert('Please enter a valid email address.');
+        }
+    });
+
+    // Validate email format
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
     <!-- Contact Section -->
     <section id="contact" class="contact">
         
