@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Shiksha | Nivarcs Case Study</title>
+    <style>
+        :root {
+            --space-black: #0a0e17;
+            --deep-navy: #141d33;
+            --electric-blue: #00b3ff;
+            --light-blue: #4cc9ff;
+            --accent-purple: #6e44ff;
+            --text-light: #eef1f8;
+            --glass-bg: rgba(20, 29, 51, 0.25);
+            --card-bg: rgba(14, 22, 39, 0.85);
+            --neumorphic-light: rgba(255, 255, 255, 0.07);
+            --neumorphic-shadow: rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: var(--space-black);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            z-index: 100;
+            background: rgba(10, 14, 23, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            background: linear-gradient(to right, var(--electric-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-left: 5px;
+        }
+        
+        .back-button {
+            position: relative;
+            padding: 10px 20px;
+            border-radius: 12px;
+            background: var(--deep-navy);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 6px 6px 12px var(--neumorphic-shadow),
+                        -6px -6px 12px var(--neumorphic-light);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .back-button:hover {
+            box-shadow: 4px 4px 8px var(--neumorphic-shadow),
+                        -4px -4px 8px var(--neumorphic-light),
+                        0 0 15px var(--electric-blue);
+            transform: translateY(-2px);
+        }
+        
+        .back-button:active {
+            transform: translateY(1px);
+            box-shadow: inset 4px 4px 8px var(--neumorphic-shadow),
+                        inset -4px -4px 8px var(--neumorphic-light);
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--space-black);
+            z-index: -2;
+        }
+        
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            z-index: 1;
+            padding: 40px;
+        }
+        
+        .project-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(14, 22, 39, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--electric-blue);
+            margin-bottom: 24px;
+            border: 1px solid rgba(0, 179, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 179, 255, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 10px rgba(0, 179, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 179, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(0, 179, 255, 0.2);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--text-light), var(--electric-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: rgba(238, 241, 248, 0.8);
+        }
+        
+        .hero-img {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 40px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: perspective(1000px) rotateX(5deg);
+            transition: all 0.5s ease;
+        }
+        
+        /* OVERVIEW SECTION */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--electric-blue), var(--accent-purple));
+            border-radius: 2px;
+        }
+        
+        .overview-card {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
+                        0 0 30px rgba(0, 179, 255, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
+                        0 0 30px rgba(0, 179, 255, 0.2);
+        }
+        
+        .client-info {
+            padding: 40px;
+            width: 40%;
+            background: rgba(14, 22, 39, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .client-logo {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: var(--deep-navy);
+        }
+        
+        .client-details h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .client-details p {
+            font-size: 16px;
+            color: rgba(238, 241, 248, 0.7);
+            line-height: 1.6;
+        }
+        
+        .project-summary {
+            padding: 40px;
+            width: 60%;
+        }
+        
+        .project-summary h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--electric-blue);
+        }
+        
+        .project-summary p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: rgba(238, 241, 248, 0.8);
+        }
+        
+        .divider {
+            height: 150px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23141d33' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,144C960,117,1056,107,1152,122.7C1248,139,1344,181,1392,202.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+        }
+        
+        /* CHALLENGE SECTION */
+        .challenge-section {
+            background-color: var(--deep-navy);
+            padding: 100px 0;
+        }
+        
+        .challenge-card {
+            background: var(--space-black);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 8px 8px 16px var(--neumorphic-shadow),
+                        -8px -8px 16px var(--neumorphic-light);
+            transition: all 0.3s ease;
+        }
+        
+        .challenge-card:hover {
+            box-shadow: 12px 12px 24px var(--neumorphic-shadow),
+                        -12px -12px 24px var(--neumorphic-light);
+        }
+        
+        .challenge-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--deep-navy), var(--space-black));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 8px var(--neumorphic-shadow),
+                        -4px -4px 8px var(--neumorphic-light);
+        }
+        
+        .challenge-icon i {
+            font-size: 24px;
+            color: var(--electric-blue);
+        }
+        
+        .challenge-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .challenge-card p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(238, 241, 248, 0.8);
+        }
+        
+        /* SOLUTION SECTION */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
+                        0 0 20px rgba(0, 179, 255, 0.2);
+        }
+        
+        .solution-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--electric-blue);
+        }
+        
+        .solution-card p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(238, 241, 248, 0.8);
+            flex-grow: 1;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 60px 0;
+            padding: 0 20px;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--electric-blue), var(--accent-purple));
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 50%;
+            padding: 0 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--electric-blue);
+            box-shadow: 0 0 0 4px var(--space-black), 0 0 0 8px rgba(0, 179, 255, 0.3), 0 0 20px var(--electric-blue);
+            z-index: 2;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .timeline-content h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--electric-blue);
+        }
+        
+        .timeline-content p {
+            font-size: 15px;
+            color: rgba(238, 241, 248, 0.8);
+        }
+        
+        /* RESULTS SECTION */
+        .results-section {
+            background-color: var(--deep-navy);
+            padding: 100px 0;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .metric-card {
+            background: var(--space-black);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--accent-purple));
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-card:hover::before {
+            opacity: 0.3;
+        }
+        
+        .metric-value {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, var(--text-light), var(--electric-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .metric-label {
+            font-size: 16px;
+            color: rgba(238, 241, 248, 0.8);
+        }
+        
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            margin: 20px auto;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 179, 255, 0.1), rgba(110, 68, 255, 0.1));
+            z-index: -1;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 80px;
+            color: rgba(0, 179, 255, 0.2);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            background-color: var(--electric-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--space-black);
+        }
+        
+        .author-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .author-details p {
+            font-size: 14px;
+            color: rgba(238, 241, 248, 0.7);
+        }
+        
+        /* TECH STACK SECTION */
+        .tech-stack {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+            gap: 20px;
+            scrollbar-width: none;
+        }
+        
+        .tech-stack::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tech-item {
+            min-width: 150px;
+            height: 150px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tech-item::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 5%;
+            right: 5%;
+            height: 10px;
+            background-color: rgba(0, 179, 255, 0.2);
+            filter: blur(10px);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .tech-item:hover::after {
+            opacity: 1;
+        }
+        
+        .tech-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: var(--electric-blue);
+        }
+        
+        .tech-name {
+            font-size: 14px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--accent-purple));
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+                        0 0 20px rgba(0, 179, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3),
+                        0 0 30px rgba(0, 179, 255, 0.5);
+        }
+        
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+        
+        .cta-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--space-black);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content p {
+            color: rgba(238, 241, 248, 0.6);
+            font-size: 14px;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .overview-card {
+                flex-direction: column;
+            }
+            
+            .client-info, .project-summary {
+                width: 100%;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding: 0 20px 0 60px;
+                left: 0;
+                text-align: left;
+            }
+            
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 20px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-value {
+                font-size: 36px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .challenge-card,
+            .solution-card,
+            .testimonial-card {
+                padding: 20px;
+            }
+            
+            .back-button {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Nivarcs<span>Digital</span></a>
+            <a href="index.html" class="back-button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Projects
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="particles"></div>
+        <div class="hero-content">
+            <div class="project-badge">Content Management Solution</div>
+            <h1>Alpha Shiksha</h1>
+            <p>A custom content management system designed for modern preschools to digitize their curriculum and learning materials.</p>
+            <img src="/api/placeholder/700/400" alt="Alpha Shiksha Project" class="hero-img">
+        </div>
+    </section>
+    
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="overview-card">
+                <div class="client-info">
+                    <div class="client-logo">AS</div>
+                    <div class="client-details">
+                        <h3>Alpha Shiksha</h3>
+                        <p>A premium chain of preschools focused on holistic early childhood education with 12+ centers across the country.</p>
+                        <p>Industry: Education</p>
+                        <p>Project Duration: 4 months</p>
+                    </div>
+                </div>
+                <div class="project-summary">
+                    <h3>Executive Summary</h3>
+                    <p>Alpha Shiksha approached Nivarcs to develop a centralized content management system that would allow them to digitize their curriculum, streamline content creation, and deliver a consistent learning experience across all their centers.</p>
+                    <p>Our solution focused on creating an intuitive platform that empowers educators while providing powerful analytics to track student engagement and learning outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="divider">
+        <div class="wave"></div>
+    </div>
+ <!-- Completing the challenge card div that was cut off -->
+<div class="challenge-icon">
+  <i class="icon">!</i>
+</div>
+<h3>Content Management Challenges</h3>
+<p>Alpha Shiksha was struggling with paper-based curriculum management across multiple centers, leading to inconsistencies in teaching materials and difficulty in updating content. They needed a digital solution that could centralize their educational content while allowing for customization at individual centers.</p>
+</div>
+
+<div class="challenge-card">
+<div class="challenge-icon">
+  <i class="icon">!</i>
+</div>
+<h3>Educator Experience</h3>
+<p>Teachers were spending excessive time creating and recreating similar learning materials. The client needed a way to provide educators with ready-to-use content while still allowing for personalization based on classroom needs.</p>
+</div>
+
+<div class="challenge-card">
+<div class="challenge-icon">
+  <i class="icon">!</i>
+</div>
+<h3>Analytics & Insights</h3>
+<p>The client had no visibility into which teaching materials were most effective or how students were progressing. They needed robust analytics to measure engagement and learning outcomes to continuously improve their curriculum.</p>
+</div>
+</div>
+</section>
+
+<!-- Solution Section -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Our Solution</h2>
+<div class="solution-grid">
+  <div class="solution-card">
+      <h3>Centralized Content Repository</h3>
+      <p>We developed a cloud-based content management system that serves as a single source of truth for all educational materials. Content can be tagged, categorized, and easily searched, making it simple for educators to find the resources they need.</p>
+  </div>
+  <div class="solution-card">
+      <h3>Intuitive Content Creation</h3>
+      <p>Our drag-and-drop editor allows non-technical staff to create engaging, multimedia-rich learning materials without any coding knowledge. Templates and reusable components speed up the content creation process.</p>
+  </div>
+  <div class="solution-card">
+      <h3>Multi-device Compatibility</h3>
+      <p>All content is automatically optimized for viewing on different devices, ensuring that learning materials look great whether viewed on classroom displays, tablets, or printed materials.</p>
+  </div>
+</div>
+
+<div class="timeline">
+  <div class="timeline-line"></div>
+  <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+          <h4>Discovery & Planning</h4>
+          <p>We conducted workshops with educators and administrators to understand their workflow and identify pain points in the current system.</p>
+      </div>
+  </div>
+  <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+          <h4>Design & Development</h4>
+          <p>Our team designed an intuitive interface and developed the core CMS functionalities with a focus on ease of use and performance.</p>
+      </div>
+  </div>
+  <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+          <h4>Testing & Refinement</h4>
+          <p>We conducted usability testing with actual educators and refined the platform based on their feedback.</p>
+      </div>
+  </div>
+  <div class="timeline-item">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+          <h4>Deployment & Training</h4>
+          <p>The system was rolled out to all centers with comprehensive training for staff to ensure smooth adoption.</p>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Results Section -->
+<section class="results-section">
+<div class="container">
+<h2 class="section-title">Results & Impact</h2>
+<div class="metrics-grid">
+  <div class="metric-card">
+      <div class="metric-value">68%</div>
+      <div class="metric-label">Reduction in content creation time</div>
+  </div>
+  <div class="metric-card">
+      <div class="metric-value">94%</div>
+      <div class="metric-label">Teacher satisfaction with the platform</div>
+  </div>
+  <div class="metric-card">
+      <div class="metric-value">3.5x</div>
+      <div class="metric-label">Increase in content sharing between centers</div>
+  </div>
+</div>
+
+<div class="testimonial-card">
+  <div class="testimonial-text">
+      The content management system developed by Nivarcs has transformed how we create and deliver our curriculum. Our teachers now spend less time on administrative tasks and more time interacting with students. The analytics have given us valuable insights into which teaching methods are most effective.
+  </div>
+  <div class="testimonial-author">
+      <div class="author-avatar">RK</div>
+      <div class="author-details">
+          <h4>Rashmi Kumar</h4>
+          <p>Director of Education, Alpha Shiksha</p>
+      </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Tech Stack Section -->
+<section class="section">
+<div class="container">
+<h2 class="section-title">Technology Stack</h2>
+<div class="tech-stack">
+  <div class="tech-item">
+      <div class="tech-icon">R</div>
+      <div class="tech-name">React</div>
+  </div>
+  <div class="tech-item">
+      <div class="tech-icon">N</div>
+      <div class="tech-name">Node.js</div>
+  </div>
+  <div class="tech-item">
+      <div class="tech-icon">M</div>
+      <div class="tech-name">MongoDB</div>
+  </div>
+  <div class="tech-item">
+      <div class="tech-icon">G</div>
+      <div class="tech-name">GraphQL</div>
+  </div>
+  <div class="tech-item">
+      <div class="tech-icon">A</div>
+      <div class="tech-name">AWS S3</div>
+  </div>
+  <div class="tech-item">
+      <div class="tech-icon">R</div>
+      <div class="tech-name">Redis</div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+<div class="container">
+  <h2 class="section-title">Ready to Transform Your Educational Content?</h2>
+  <p>Let's discuss how we can digitize your curriculum and create engaging learning experiences.</p>
+  <a href="#" class="cta-btn">Get in Touch</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+  <div class="footer-content">
+      <p>&copy; 2025 Nivarcs AI - Transforming education through innovative technology</p>
+  </div>
+</div>
+</footer>
+
+<script>
+// Particle background animation
+document.addEventListener('DOMContentLoaded', function() {
+  // Particle animation could be added here
+});
+</script>
+</body>
+</html>

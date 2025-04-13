@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivarcs - Projects</title>
+    <style>
+        :root {
+            --primary: #0066FF;
+            --secondary: #00E5FF;
+            --dark: #333333;
+            --light: #F8F9FA;
+            --gray: #E0E0E0;
+            --text: #4A4A4A;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .division-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 0.35rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-link {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 3px;
+            transition: color 0.3s ease;
+        }
+
+        .cta-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        .cta-link:hover {
+            color: var(--secondary);
+        }
+
+        .cta-link:hover::after {
+            width: 100%;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+            font-style: italic;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 3rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="section-title">Our Projects</h2>
+        
+        <p class="intro-text">
+            At Nivarcs, we transform challenges into opportunities through cutting-edge technology and strategic innovation. Our projects represent our commitment to developing solutions that are not just relevant today but built for tomorrow's demands. We combine deep technical expertise with human-centered design, crafting scalable systems that evolve alongside our clients' ambitions.
+        </p>
+        
+        <div class="projects-grid">
+            <!-- Alpha Shiksha Project -->
+            <div class="project-card">
+                <img src="/api/placeholder/600/400" alt="Alpha Shiksha Project" class="project-image">
+                <div class="project-content">
+                    <span class="division-tag">Nivarcs Digital</span>
+                    <h3 class="project-title">Alpha Shiksha</h3>
+                    <p class="project-description">
+                        A revolutionary content management solution for preschool education, enabling personalized learning experiences for young minds. The platform includes adaptive content recommendations and comprehensive analytics for educators.
+                    </p>
+                    <a href="#" class="cta-link">View Case Study</a>
+                </div>
+            </div>
+            
+            <!-- Quantum Forecast Project -->
+            <div class="project-card">
+                <img src="/api/placeholder/600/400" alt="Quantum Forecast Project" class="project-image">
+                <div class="project-content">
+                    <span class="division-tag">Nivarcs AI</span>
+                    <h3 class="project-title">Quantum Forecast</h3>
+                    <p class="project-description">
+                        An advanced predictive analytics platform leveraging quantum computing principles to optimize business operations and resource planning with unprecedented accuracy.
+                    </p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+            
+            <!-- AutoSync Fleet Project -->
+            <div class="project-card">
+                <img src="/api/placeholder/600/400" alt="AutoSync Fleet Project" class="project-image">
+                <div class="project-content">
+                    <span class="division-tag">Nivarcs Tech</span>
+                    <h3 class="project-title">AutoSync Fleet</h3>
+                    <p class="project-description">
+                        A next-generation fleet management system integrating IoT sensors, real-time diagnostics, and preventive maintenance protocols for transportation companies.
+                    </p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+            
+            <!-- MarketPulse Project -->
+            <div class="project-card">
+                <img src="/api/placeholder/600/400" alt="MarketPulse Project" class="project-image">
+                <div class="project-content">
+                    <span class="division-tag">Nivarcs Commerce</span>
+                    <h3 class="project-title">MarketPulse</h3>
+                    <p class="project-description">
+                        A dynamic e-commerce optimization tool that analyzes consumer behavior patterns to deliver personalized shopping experiences and inventory forecasting.
+                    </p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+            
+            <!-- Biometric Wellness Project -->
+            <div class="project-card">
+                <img src="/api/placeholder/600/400" alt="Biometric Wellness Project" class="project-image">
+                <div class="project-content">
+                    <span class="division-tag">Nivarcs Innovations</span>
+                    <h3 class="project-title">Biometric Wellness</h3>
+                    <p class="project-description">
+                        A revolutionary health monitoring system combining wearable technology with AI diagnostics to provide preventative healthcare insights for individuals and healthcare providers.
+                    </p>
+                    <span class="coming-soon">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
